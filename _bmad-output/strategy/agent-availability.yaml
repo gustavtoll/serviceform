@@ -1,0 +1,9 @@
+codex:
+  status: available
+  max_parallel: 1
+claude_code:
+  status: available
+  max_parallel: 1
+pi_agent:
+  status: available
+  max_parallel: 1
