@@ -6,8 +6,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "check": "npm run build",
-    "deploy:preview": "vercel",
-    "deploy:production": "vercel --prod"
+    "deploy:preview": "npx --yes vercel",
+    "deploy:production": "npx --yes vercel --prod"
   },
   "devDependencies": {
     "vite": "latest"
