@@ -2,6 +2,8 @@
 
 Status: design-only preview. No live account creation, email delivery, CRM write, workflow activation, or production deployment is authorized by this work.
 
+Visual-parity implementation plan: [`docs/plans/2026-08-28-sales-partner-signup-serviceform-parity.md`](../plans/2026-08-28-sales-partner-signup-serviceform-parity.md).
+
 ## Friction audit
 
 ### Before

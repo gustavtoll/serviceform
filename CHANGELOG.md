@@ -2,6 +2,9 @@
 
 ## August 28, 2026
 
+### Planned
+- Added the section-by-section Serviceform Homepage Parity implementation plan for the Sales Partner signup. It defines the next design wave, missing product/proof inputs, source boundaries, and preview-only verification; it does not authorize GHL or a production release.
+
 ### Changed
 - Redesigned the Sales Partner signup as a design-only, email-first conversion preview with one required field, outcome-led CTA, local-only confirmation, repeated signup paths, and concise program orientation.
 - Added a CRO friction audit, future server handoff contract, deferred instrumentation events, failure requirements, and A/B hypotheses without activating any external workflow.
