@@ -7,7 +7,7 @@
 - Preview: https://serviceform-sales-partner-signup-200kxlru5-gustavtolls-projects.vercel.app
 - Deployment target: Vercel preview only; no `--prod` flag, production deployment, or alias change was used.
 
-`npm --prefix apps/sales-partner-signup test`, the signup build, root `npm run check`, and `git diff --check` passed before deployment. A direct HTTPS check returned HTTP 200, the title `Start as a Serviceform Sales Partner`, expected hero and CTA content, HTML `noindex,nofollow`, and `X-Robots-Tag: noindex, nofollow`. Interactive desktop/mobile browser inspection could not be completed because the in-app browser control surface was unavailable; no visual verification is claimed for this preview.
+`npm --prefix apps/sales-partner-signup test`, the signup build, root `npm run check`, and `git diff --check` passed before deployment. A direct HTTPS check returned HTTP 200, the title `Start as a Serviceform Sales Partner`, expected hero and CTA content, HTML `noindex,nofollow`, and `X-Robots-Tag: noindex, nofollow`. The preview was visually inspected in the browser at desktop size: near-white canvas, slim espresso header with light action, readable form-first hero, non-interactive original product UI, restrained warm accent, coherent type rhythm, and no observed overlap or clipping. Device-emulated mobile screenshot automation was unavailable in this environment; responsive CSS/static contracts and desktop geometry were verified, but a device-emulated mobile visual pass is not claimed.
 
 W1-A.2 changes presentation only. The form remains a design-only browser-local experience and creates no email, account, CRM/API request, analytics event, workflow, or other external side effect.
 
