@@ -4,6 +4,18 @@ Status: design-only preview. No live account creation, email delivery, CRM write
 
 Visual-parity implementation plan: [`docs/plans/2026-08-28-sales-partner-signup-serviceform-parity.md`](../plans/2026-08-28-sales-partner-signup-serviceform-parity.md).
 
+## W1-A.2 Serviceform homepage translation
+
+Implemented on `design/sales-partner-signup-cro` with commit message `refactor(signup): align CRO preview with Serviceform homepage` and published only as a noindex Vercel preview: https://serviceform-sales-partner-signup-200kxlru5-gustavtolls-projects.vercel.app.
+
+- Replaced the dominant cream canvas and saturated red-orange with a near-white canvas, contained cream surfaces, espresso structure, and a muted warm accent.
+- Separated the light header action from the primary form CTA and kept both anchored to the sole email signup destination.
+- Added an original, decorative HTML/CSS product-conversation composition with generic labels. It is `aria-hidden`, non-interactive, and contains no screenshots, customer proof, integrations, live status, metrics, or outcomes.
+- Recast approved program inputs as compact numbered facts and the three-step journey as a contained product surface; the closing invitation now uses a calmer off-white surface.
+- Retained the skip link, visible focus treatment, responsive rules, reduced-motion support, 44px controls, local-only confirmation, and noindex controls.
+
+This is a visual translation of the approved Serviceform reference, not a copy of its protected copy or assets. No GoHighLevel connection, API, email delivery, account creation, analytics, workflow, payout, production deployment, or production-alias change is part of W1-A.2.
+
 ## Friction audit
 
 ### Before
@@ -25,7 +37,7 @@ Visual-parity implementation plan: [`docs/plans/2026-08-28-sales-partner-signup-
 ## Applied CRO decisions
 
 - Email-first entry removes premature qualification and profile work.
-- A singular orange primary action dominates the hero; the header and closing CTA repeat the same path through anchors.
+- A singular muted-warm primary action dominates the hero; the light header action and closing CTA repeat the same path through anchors without competing visually.
 - A persistent label, realistic placeholder, inline live error, valid state, visible focus treatment, and 44px-plus controls reduce interaction uncertainty.
 - Immediate expectation setting explains both the eventual next step and the current preview limitation.
 - Mobile collapses to one column, keeps the form early, and preserves comfortable touch targets.

@@ -21,76 +21,84 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="eyebrow"><span>Sales Partner program</span><span>One-minute start</span></div>
       <div class="hero-layout">
-        <div class="hero-copy">
-          <p class="pill">Turn trusted introductions into lasting upside</p>
-          <h1 id="hero-title">One email.<br><em>Your next chapter.</em></h1>
-          <p class="lede">Start your Serviceform Sales Partner account setup and help e-commerce teams turn product questions into confident buying decisions.</p>
-          <div class="micro-proof" aria-label="Signup reassurances">
-            <span>Less than a minute</span><span>No payment details</span><span>Email only</span>
+        <div class="hero-intro">
+          <p class="eyebrow">Sales Partner program</p>
+          <div class="hero-copy">
+            <h1 id="hero-title">One email.<br><em>Your next chapter.</em></h1>
+            <p class="lede">Start your Serviceform Sales Partner account setup and help e-commerce teams turn product questions into confident buying decisions.</p>
           </div>
+
+          <div class="signup-card" id="signup">
+            <div class="card-heading"><span>Start here</span><span>01 / 01</span></div>
+            <h2>Enter the email you want connected to your Sales Partner account.</h2>
+            <form id="partner-form" novalidate>
+              <label for="email">Work email address</label>
+              <div class="email-control">
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourcompany.com" aria-describedby="email-help form-error" required>
+                <span class="field-status" aria-hidden="true">✓</span>
+              </div>
+              <p class="field-help" id="email-help">Use an inbox you check. No payment details are needed.</p>
+              <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
+              <button type="submit">Create my Sales Partner account <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="reassurance" aria-label="Signup details"><span>Email only</span><span>No payment details</span><span>Takes less than a minute</span></div>
+            <p class="next-step"><strong>What happens next:</strong> once the live connection is approved, this email will start account setup and receive the next steps.</p>
+            <div class="demo-note"><strong>Design-only preview</strong><span>No data leaves your browser, no email is sent, and no account is actually created yet.</span></div>
+          </div>
+
+          <section id="confirmation" class="confirmation" hidden tabindex="-1" aria-labelledby="confirmation-title">
+            <span class="confirmation-mark" aria-hidden="true">✓</span>
+            <p class="confirmation-kicker">Account setup is ready</p>
+            <h2 id="confirmation-title">That’s the complete signup experience.</h2>
+            <p>Your email was saved only in this browser so you can preview the finished flow. No email was sent and no account was created.</p>
+            <p class="reference">Local preview reference <strong id="reference"></strong></p>
+            <button id="reset-form" type="button">Try another email</button>
+          </section>
         </div>
 
-        <div class="signup-card" id="signup">
-          <div class="card-heading"><span>Start here</span><span>01 / 01</span></div>
-          <h2>Enter the email you want connected to your Sales Partner account.</h2>
-          <form id="partner-form" novalidate>
-            <label for="email">Work email address</label>
-            <div class="email-control">
-              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourcompany.com" aria-describedby="email-help form-error" required>
-              <span class="field-status" aria-hidden="true">✓</span>
+        <aside class="product-visual" aria-hidden="true">
+          <div class="visual-top"><span>Serviceform workspace</span><i></i><i></i><i></i></div>
+          <div class="visual-body">
+            <div class="visual-nav"><b>Conversations</b><span>Introductions</span><span>Resources</span></div>
+            <div class="visual-thread">
+              <div class="thread-heading"><span>Product question</span><strong>New introduction</strong></div>
+              <div class="message customer"><small>Product question</small><p>Which option fits what I need?</p></div>
+              <div class="message agent"><small>Guided response</small><p>Let’s narrow it down together.</p><div class="choice-row"><span>Compare options</span><span>Ask a question</span></div></div>
+              <div class="visual-status"><span class="status-dot"></span><div><small>Conversation state</small><strong>Qualified conversation</strong></div></div>
             </div>
-            <p class="field-help" id="email-help">Use an inbox you check. No payment details are needed.</p>
-            <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
-            <button type="submit">Create my Sales Partner account <span aria-hidden="true">→</span></button>
-          </form>
-          <p class="next-step"><strong>What happens next:</strong> once the live connection is approved, this email will start account setup and receive the next steps.</p>
-          <div class="demo-note"><strong>Design-only preview</strong><span>No data leaves your browser, no email is sent, and no account is actually created yet.</span></div>
-        </div>
-
-        <section id="confirmation" class="confirmation" hidden tabindex="-1" aria-labelledby="confirmation-title">
-          <span class="confirmation-mark" aria-hidden="true">✓</span>
-          <p class="confirmation-kicker">Account setup is ready</p>
-          <h2 id="confirmation-title">That’s the complete signup experience.</h2>
-          <p>Your email was saved only in this browser so you can preview the finished flow. No email was sent and no account was created.</p>
-          <p class="reference">Local preview reference <strong id="reference"></strong></p>
-          <button id="reset-form" type="button">Try another email</button>
-        </section>
+          </div>
+        </aside>
       </div>
-      <a class="scroll-cue" href="#program">See how the program works <span aria-hidden="true">↓</span></a>
     </section>
 
     <section class="program" id="program" aria-labelledby="program-title">
-      <div class="section-mark">Why Serviceform <span>02</span></div>
+      <div class="section-mark">Program inputs <span>02</span></div>
       <div class="program-heading">
-        <p class="pill">Built around relationships</p>
-        <h2 id="program-title">A simple start.<br>A compounding opportunity.</h2>
-        <p>Bring the right e-commerce teams into a useful conversation. Serviceform supports the buying journey; you keep building trusted relationships.</p>
+        <p class="eyebrow">Built around relationships</p>
+        <h2 id="program-title">The essentials,<br>clearly stated.</h2>
+        <p>Bring the right e-commerce teams into a useful conversation. These proposed inputs remain subject to approved and signed terms.</p>
       </div>
-      <div class="benefits">
-        <article class="sage"><span>01</span><h3>40% lifetime commission</h3><p>On eligible referred customer revenue, subject to approved and signed program and payout terms.</p></article>
-        <article class="sky"><span>02</span><h3>90-day first-click crediting</h3><p>A first valid tracked click opens the proposed credit window, subject to attribution review and final terms.</p></article>
-        <article class="blush"><span>03</span><h3>Grow a partner network</h3><p>The proposed 10% Sub-Sales Partner kickback remains subject to calculation, approval, and payout terms.</p></article>
-        <article class="cream"><span>04</span><h3>Dream Car continuity</h3><p>The proposed lease benefit continues at 100 active deals, with eligibility and lease rules still requiring approval.</p></article>
-      </div>
+      <ol class="facts">
+        <li><span>01</span><div><h3>40% lifetime commission</h3><p>On eligible referred customer revenue.</p></div></li>
+        <li><span>02</span><div><h3>90-day first-click crediting</h3><p>Subject to attribution review and final terms.</p></div></li>
+        <li><span>03</span><div><h3>10% Sub-Sales Partner kickback</h3><p>Subject to calculation, approval, and payout terms.</p></div></li>
+        <li><span>04</span><div><h3>Dream Car continuity</h3><p>The proposed lease benefit continues at 100 active deals, with eligibility and lease rules still requiring approval.</p></div></li>
+      </ol>
     </section>
 
     <section class="how" aria-labelledby="how-title">
-      <div class="section-mark light">Your path <span>03</span></div>
-      <div>
-        <h2 id="how-title">Start now. Add the detail later.</h2>
-        <ol>
-          <li><span>01</span><div><h3>Enter your email</h3><p>One field is enough to begin.</p></div></li>
-          <li><span>02</span><div><h3>Receive your next step</h3><p>When the live workflow is approved, setup guidance will arrive by email.</p></div></li>
-          <li><span>03</span><div><h3>Make the right introductions</h3><p>Use the program resources to identify fit and open a useful conversation.</p></div></li>
-        </ol>
-      </div>
+      <div class="how-heading"><p class="eyebrow">A simple path</p><h2 id="how-title">Start now.<br>Add detail later.</h2></div>
+      <ol>
+        <li><span>01</span><div><h3>Enter your email</h3><p>One field is enough to begin.</p></div></li>
+        <li><span>02</span><div><h3>Receive your next step</h3><p>Setup guidance follows only when the live workflow is approved.</p></div></li>
+        <li><span>03</span><div><h3>Make introductions</h3><p>Use approved resources to identify fit and open a useful conversation.</p></div></li>
+      </ol>
     </section>
 
     <section class="closing" aria-labelledby="closing-title">
-      <p class="pill">Ready when you are</p>
-      <h2 id="closing-title">Your network already knows you.<br><em>Start with one email.</em></h2>
+      <p class="eyebrow">Ready when you are</p>
+      <h2 id="closing-title">Start with one email.</h2>
       <a class="button" href="#signup">Create my Sales Partner account <span aria-hidden="true">↑</span></a>
       <p>Less than a minute · No payment details · Design-only preview</p>
     </section>

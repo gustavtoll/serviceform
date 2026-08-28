@@ -1,5 +1,16 @@
 # Deployment
 
+## Sales Partner signup W1-A.2 preview — August 29, 2026
+
+- Branch: `design/sales-partner-signup-cro`
+- Commit: `refactor(signup): align CRO preview with Serviceform homepage`
+- Preview: https://serviceform-sales-partner-signup-200kxlru5-gustavtolls-projects.vercel.app
+- Deployment target: Vercel preview only; no `--prod` flag, production deployment, or alias change was used.
+
+`npm --prefix apps/sales-partner-signup test`, the signup build, root `npm run check`, and `git diff --check` passed before deployment. A direct HTTPS check returned HTTP 200, the title `Start as a Serviceform Sales Partner`, expected hero and CTA content, HTML `noindex,nofollow`, and `X-Robots-Tag: noindex, nofollow`. Interactive desktop/mobile browser inspection could not be completed because the in-app browser control surface was unavailable; no visual verification is claimed for this preview.
+
+W1-A.2 changes presentation only. The form remains a design-only browser-local experience and creates no email, account, CRM/API request, analytics event, workflow, or other external side effect.
+
 Deployment evidence for **The Mira E-commerce Prospecting Playbook**, published 2026-08-27.
 
 ## Commands

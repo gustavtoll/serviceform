@@ -1,5 +1,13 @@
 # Changelog
 
+## August 29, 2026
+
+### Changed
+- Reworked the email-first Sales Partner signup preview for W1-A.2 into a near-white, product-led Serviceform composition with a light header action, original non-claiming illustrative UI, compact program facts, contained three-step flow, and calmer closing action.
+
+### Safety
+- Kept the preview email-only, local-only, noindex, and free of GoHighLevel, API, email, account, analytics, proof, metric, or production behavior.
+
 ## August 28, 2026
 
 ### Planned
