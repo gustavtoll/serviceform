@@ -1,40 +1,38 @@
 # Deployment
 
-Deployment evidence for **The Mira E-commerce Prospecting Playbook**, published 2026-08-27.
+Deployment evidence for **The Mira E-commerce Prospecting Playbook** brand refresh, published 2026-08-28.
 
 ## Commands
 
 ```bash
 npm install
 npm run check
-gh repo create gustavtoll/serviceform --public --source=. --remote=origin --description "The Mira E-commerce Prospecting Playbook" --push
-npx --yes vercel --yes
-npx --yes vercel --prod --yes
-npx --yes vercel project protection disable serviceform --sso
+npx --yes vercel --yes --scope gustavtolls-projects
+npx --yes vercel --prod --yes --scope gustavtolls-projects
 ```
 
-The first `npm run deploy:preview -- --yes` attempt returned `vercel: command not found`; the approved `npx` fallback above succeeded. Because Vercel assigns a new project's first deployment to production, a second `npx --yes vercel --yes` created the true preview before the explicit production deployment.
+The first unscoped preview attempt returned `Error: Not authorized`. `npx --yes vercel whoami` and `vercel project inspect serviceform` confirmed the existing account and linked project. Repeating the deployment with the project's existing `gustavtolls-projects` scope succeeded; no credentials, project routing, or protection settings were changed.
 
 ## Release
 
 - GitHub: https://github.com/gustavtoll/serviceform (public)
-- Release commit: `a1239ecad6603847d953b361abec47651903919c`
-- Branch: `chore/serviceform-bootstrap`
-- Preview: https://serviceform-660m44jkd-gustavtolls-projects.vercel.app
-- Production deployment: https://serviceform-i79neqo3f-gustavtolls-projects.vercel.app
+- Deployed source commit: `a54259e6b24c94981b17e7e12595233de7f59aba`
+- Branch: `refactor/serviceform-brand-refresh`
+- Preview: https://serviceform-p3mwafiqw-gustavtolls-projects.vercel.app
+- Preview inspection: https://vercel.com/gustavtolls-projects/serviceform/5BgkcAJ43xvkVGuWtWhwBX91Rq2D
+- Production deployment: https://serviceform-1r9mbxucd-gustavtolls-projects.vercel.app
+- Production inspection: https://vercel.com/gustavtolls-projects/serviceform/D4YRoqJDNXhRvuyK9WJr3bvndGwj
 - Production alias: https://serviceform-tau.vercel.app
 
 ## Verification
 
-Verified independently with `curl --fail --silent --show-error` on 2026-08-27:
+Verified independently with `curl --location --fail --silent --show-error` on 2026-08-28:
 
 | Target | Result | Content check |
 | --- | --- | --- |
-| GitHub repository | HTTP 200 | GitHub reports `PUBLIC` |
 | Preview URL | HTTP 200 | Expected title and hero copy present |
 | Production deployment URL | HTTP 200 | Expected title and hero copy present |
 | Production alias | HTTP 200 | Expected title and hero copy present |
-| Production CSS asset | HTTP 200 | `text/css` |
-| Production JavaScript asset | HTTP 200 | `application/javascript` |
+| CSS assets on all three targets | HTTP 200 | `text/css; charset=utf-8` |
 
-Vercel SSO deployment protection was disabled for this public artifact after an initial verification correctly detected login redirects on immutable deployment URLs. Final checks above were performed without authentication or bypass credentials.
+`npm run check` completed successfully with Vite 8.2.2: 5 modules transformed and production assets emitted. Local HTTP verification also returned 200 and confirmed the expected hero content, one H1, one skip link, six sections, ARIA labels, and two responsive breakpoints.
