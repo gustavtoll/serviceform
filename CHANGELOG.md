@@ -2,6 +2,13 @@
 
 ## August 28, 2026
 
+### Changed
+- Redesigned the Sales Partner signup as a design-only, email-first conversion preview with one required field, outcome-led CTA, local-only confirmation, repeated signup paths, and concise program orientation.
+- Added a CRO friction audit, future server handoff contract, deferred instrumentation events, failure requirements, and A/B hypotheses without activating any external workflow.
+
+### Safety
+- The signup preview sends no email, creates no account, performs no network request or CRM mutation, remains noindex, and is not a production deployment.
+
 ### Corrected
 - Replaced the superseded blue/violet Sales Partner interpretation with the approved Mira-aligned warm cream, espresso, orange, sage, muted-sky, and blush system across all four Wave 1 and Wave 2 surfaces.
 - Relaxed display tracking and line height, raised body leading to at least 1.5, and added static regression checks that reject the legacy violet token.
