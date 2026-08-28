@@ -120,3 +120,16 @@ The authoritative correction was released from `fix/sales-partner-mira-brand-ali
 | E-commerce Sales Partner deck | https://serviceform-ecommerce-sales-partner-deck-nlifq7vlx.vercel.app | https://serviceform-ecommerce-sales-partner-deck-jwvwwsv3e.vercel.app | https://serviceform-ecommerce-sales-partner.vercel.app |
 
 `npm run check`, every app static validation, and `git diff --check` passed. All 12 URLs returned HTTP 200 with the expected titles. Internal plan, resource hub, and deck preview/release/alias endpoints returned `X-Robots-Tag: noindex, nofollow`; the public signup alias intentionally remains indexable. The in-app browser exposed no browser instance, so a production-alias visual viewport inspection could not be completed in this release session.
+
+## Corrected production verification — August 28, 2026
+
+A final header-contrast correction was covered by new static tests: white brand and navigation text must not be overridden by espresso on an espresso header. All four artifacts were redeployed from commit `97ea3dd` and production aliases were reassigned.
+
+| Artifact | Preview | Production deployment | Alias |
+|---|---|---|---|
+| Sales Partner signup | https://serviceform-sales-partner-signup-148rn5xe9-gustavtolls-projects.vercel.app | https://serviceform-sales-partner-signup-13mkwplsc-gustavtolls-projects.vercel.app | https://serviceform-sales-partner-signup.vercel.app |
+| Internal leadership plan | https://serviceform-sales-partner-internal-plan-mo0u5do3w.vercel.app | https://serviceform-sales-partner-internal-plan-frii8ev19.vercel.app | https://serviceform-sales-partner-internal.vercel.app |
+| Sales Partner resource hub | https://serviceform-sales-partner-resource-1jf7vgrss.vercel.app | https://serviceform-sales-partner-resource-8fga00mpc.vercel.app | https://serviceform-sales-partner-resource.vercel.app |
+| E-commerce Sales Partner deck | https://serviceform-ecommerce-sales-partner-deck-ngjx98tvj.vercel.app | https://serviceform-ecommerce-sales-partner-deck-okd5hzqqy.vercel.app | https://serviceform-ecommerce-sales-partner.vercel.app |
+
+All 12 endpoints above returned HTTP 200 after deployment. The Resource Hub production alias was visually rechecked: its white `serviceform.` brand and navigation are now legible on the espresso header; cream, orange, blush, blue-gray, and sage surfaces are coherent; and no visible clipping, overlap, or touching glyphs appeared in the desktop review.
