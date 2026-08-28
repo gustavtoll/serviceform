@@ -83,3 +83,27 @@ The production aliases were refreshed after a Serviceform-main-website brand-kit
 | Internal leadership plan | https://serviceform-sales-partner-internal-plan-gz1lg8kce.vercel.app | https://serviceform-sales-partner-internal-plan-p3auzlw2q.vercel.app | https://serviceform-sales-partner-internal.vercel.app |
 
 `npm run check` passed before release. All six updated endpoints returned HTTP 200. The signup production alias was visually inspected in-browser: light product canvas, near-black typography, blue/violet accents, compact rounded navigation and CTA controls, with no visible first-viewport overlap or clipping.
+
+---
+
+# Sales Partner Machine — Wave 2
+
+Deployment evidence for W2-A and W2-B, released on 2026-08-28 as distinct Vercel projects under `gustavtolls-projects`.
+
+## W2-A — Sales Partner resource hub
+
+- Preview: https://serviceform-sales-partner-resource-5kx8wjpnf.vercel.app
+- Production deployment: https://serviceform-sales-partner-resource-j8sthq6aw.vercel.app
+- Production alias: https://serviceform-sales-partner-resource.vercel.app
+
+## W2-B — E-commerce Sales Partner deck
+
+- Preview: https://serviceform-ecommerce-sales-partner-deck-n9oobcy05.vercel.app
+- Production deployment: https://serviceform-ecommerce-sales-partner-deck-g12ela5bs.vercel.app
+- Production alias: https://serviceform-ecommerce-sales-partner.vercel.app
+
+## Verification
+
+`npm run check` and `git diff --check` passed before release. On 2026-08-28, all six URLs returned HTTP 200, the expected app title, and `X-Robots-Tag: noindex, nofollow`. Project-level Vercel SSO was disabled after the initial immutable URLs correctly revealed login interception; noindex remains enforced in HTML and hosting headers.
+
+The deck production alias was visually inspected at 1440×900 and 390×844. Its first view showed a light elevated pill header, near-black presentation canvas, blue/violet focal accent, Instrument Sans hierarchy, intact slide controls, and no visible overlap or clipping.

@@ -25,6 +25,7 @@
 - Program inputs: 40% lifetime commission; 90-day first-click cookie/crediting; a 10% Sub-Sales Partner kickback; Dream Car lease continuity at 100 active deals.
 - Do not activate GoHighLevel workflows, calendars, payouts, contest mechanics, public claims, or production deployments without a separate authorized wave and the required access/terms.
 - Wave 0 authority: `docs/sales-partner-machine/` and `_bmad-output/strategy/pam-handoff-v1-sales-partner-machine.md`.
+- Wave 2 architecture adds independent static Vercel apps at `apps/sales-partner-resource-hub` and `apps/ecommerce-sales-partner-deck`; both must remain noindex enablement assets until separately authorized.
 
 ## Vault drop
 At session end, write a note to `/Users/gustavtoll/memory-vault/_inbox/`, append the vault ledger, and update `.vault-queue/pending.md`.
