@@ -2,6 +2,10 @@
 
 ## August 28, 2026
 
+### Corrected
+- Replaced the superseded blue/violet Sales Partner interpretation with the approved Mira-aligned warm cream, espresso, orange, sage, muted-sky, and blush system across all four Wave 1 and Wave 2 surfaces.
+- Relaxed display tracking and line height, raised body leading to at least 1.5, and added static regression checks that reject the legacy violet token.
+
 ### Added
 - Wave 2 private Sales Partner resource hub with track-specific activation, ICP guidance, scripts, qualification, source discipline, pilot rhythm, FAQ, and terms guardrails.
 - Wave 2 interactive e-commerce Sales Partner deck with general vertical scenarios, first-call discovery, accessible keyboard controls, and explicit claims safety.

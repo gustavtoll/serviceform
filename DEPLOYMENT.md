@@ -107,3 +107,16 @@ Deployment evidence for W2-A and W2-B, released on 2026-08-28 as distinct Vercel
 `npm run check` and `git diff --check` passed before release. On 2026-08-28, all six URLs returned HTTP 200, the expected app title, and `X-Robots-Tag: noindex, nofollow`. Project-level Vercel SSO was disabled after the initial immutable URLs correctly revealed login interception; noindex remains enforced in HTML and hosting headers.
 
 The deck production alias was visually inspected at 1440×900 and 390×844. Its first view showed a light elevated pill header, near-black presentation canvas, blue/violet focal accent, Instrument Sans hierarchy, intact slide controls, and no visible overlap or clipping.
+
+## Mira brand correction — August 28, 2026
+
+The authoritative correction was released from `fix/sales-partner-mira-brand-alignment`, whose parent is the unmerged Wave 2 branch. All four surfaces now use the Mira-referenced warm cream, espresso, orange, and pastel system.
+
+| Artifact | Preview | Production deployment | Alias |
+|---|---|---|---|
+| Sales Partner signup | https://serviceform-sales-partner-signup-idpzh0rnc-gustavtolls-projects.vercel.app | https://serviceform-sales-partner-signup-ip6adew5a-gustavtolls-projects.vercel.app | https://serviceform-sales-partner-signup.vercel.app |
+| Internal leadership plan | https://serviceform-sales-partner-internal-plan-iyxypntq3.vercel.app | https://serviceform-sales-partner-internal-plan-4xq4hnyi5.vercel.app | https://serviceform-sales-partner-internal.vercel.app |
+| Sales Partner resource hub | https://serviceform-sales-partner-resource-imm4me5pb.vercel.app | https://serviceform-sales-partner-resource-jyickbjln.vercel.app | https://serviceform-sales-partner-resource.vercel.app |
+| E-commerce Sales Partner deck | https://serviceform-ecommerce-sales-partner-deck-nlifq7vlx.vercel.app | https://serviceform-ecommerce-sales-partner-deck-jwvwwsv3e.vercel.app | https://serviceform-ecommerce-sales-partner.vercel.app |
+
+`npm run check`, every app static validation, and `git diff --check` passed. All 12 URLs returned HTTP 200 with the expected titles. Internal plan, resource hub, and deck preview/release/alias endpoints returned `X-Robots-Tag: noindex, nofollow`; the public signup alias intentionally remains indexable. The in-app browser exposed no browser instance, so a production-alias visual viewport inspection could not be completed in this release session.

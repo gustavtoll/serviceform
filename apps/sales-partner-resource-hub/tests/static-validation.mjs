@@ -1,1 +1,16 @@
-import {readFileSync} from 'node:fs';import assert from 'node:assert/strict';const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');for(const term of ['Independent','Creator','Agency / Company','opportunity','90-day','Sub-Sales Partner','Ninety days','Decision & terms guardrails'])assert.ok(html.includes(term),`Missing ${term}`);for(const input of ['40% lifetime commission','100 active deals','10% Sub-Sales Partner kickback'])assert.ok(html.includes(input),`Missing ${input}`);for(const claim of ['4.24%','14.36%','3×','4.6%','70%'])assert.ok(!html.includes(claim),`Unapproved claim ${claim}`);assert.ok(html.includes('name="robots" content="noindex,nofollow"'));assert.ok(!/gohighlevel|leadconnector|hooks\.zapier/i.test(readFileSync(new URL('../src/main.js',import.meta.url),'utf8')));for(const token of ['--sf-ink:#15131f','--sf-paper:#faf9ff','--sf-violet:#6557ff','--sf-blue:#1784ff','--sf-radius:28px'])assert.ok(css.includes(token));assert.ok(html.includes('class="skip"'));assert.ok(css.includes('prefers-reduced-motion:reduce'));console.log('resource hub static validation passed');
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const css = readFileSync(new URL('../src/style.css', import.meta.url), 'utf8');
+for (const term of ['Independent','Creator','Agency / Company','opportunity','90-day','Sub-Sales Partner','Ninety days','Decision & terms guardrails']) assert.ok(html.includes(term), `Missing ${term}`);
+for (const input of ['40% lifetime commission','100 active deals','10% Sub-Sales Partner kickback']) assert.ok(html.includes(input), `Missing ${input}`);
+for (const claim of ['4.24%','14.36%','3×','4.6%','70%']) assert.ok(!html.includes(claim), `Unapproved claim ${claim}`);
+assert.ok(html.includes('name="robots" content="noindex,nofollow"'));
+assert.ok(!/gohighlevel|leadconnector|hooks\.zapier/i.test(readFileSync(new URL('../src/main.js', import.meta.url), 'utf8')));
+for (const token of ['--sf-espresso:#2d201b','--sf-cream:#f6f0e5','--sf-orange:#f26a2e','--sf-sage:#dce5d5','--sf-radius:24px']) assert.ok(css.includes(token));
+assert.ok(!css.includes('#6557ff'), 'Legacy violet token found');
+assert.ok(!css.includes('text-decoration:none;color:var(--sf-ink)}'), 'Espresso text overrides white header brand');
+assert.ok(!css.includes('padding:.75rem 1rem;color:var(--sf-ink);text-decoration:none;font-size:.8rem;border-radius:var(--sf-pill)}'), 'Espresso text overrides header navigation');
+assert.ok(html.includes('class="skip"'));
+assert.ok(css.includes('prefers-reduced-motion:reduce'));
+console.log('resource hub static validation passed');

@@ -8,7 +8,8 @@ for (const claim of ['40% lifetime commission','90-day first-click','100 active 
 assert.ok(html.includes('Decision required:'));
 assert.ok(!/affiliate/i.test(html), 'Legacy terminology found');
 assert.ok(!/gohighlevel|leadconnector|hooks\.zapier/i.test(js), 'External CRM endpoint found in client');
-for (const token of ['--sf-ink:#15131f','--sf-paper:#faf9ff','--sf-violet:#6557ff','--sf-blue:#1784ff','--sf-radius:28px']) assert.ok(css.includes(token), `Missing brand token: ${token}`);
+for (const token of ['--sf-espresso:#2d201b','--sf-cream:#f6f0e5','--sf-orange:#f26a2e','--sf-sage:#dce5d5','--sf-radius:24px']) assert.ok(css.includes(token), `Missing brand token: ${token}`);
+assert.ok(!css.includes('#6557ff'), 'Legacy violet token found');
 assert.ok(html.includes('Instrument+Sans'), 'Serviceform display family missing');
 assert.ok(html.includes('class="skip"'), 'Skip link missing');
 assert.ok(css.includes('prefers-reduced-motion:reduce'), 'Reduced-motion support missing');
