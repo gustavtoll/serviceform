@@ -16,7 +16,7 @@ The first unscoped preview attempt returned `Error: Not authorized`. `npx --yes 
 ## Release
 
 - GitHub: https://github.com/gustavtoll/serviceform (public)
-- Deployed source commit: `a54259e6b24c94981b17e7e12595233de7f59aba`
+- Deployed source commit: `a54259e5ce7d68f44e658879a0af400ab2e74f53`
 - Branch: `refactor/serviceform-brand-refresh`
 - Preview: https://serviceform-p3mwafiqw-gustavtolls-projects.vercel.app
 - Preview inspection: https://vercel.com/gustavtolls-projects/serviceform/5BgkcAJ43xvkVGuWtWhwBX91Rq2D
