@@ -1,5 +1,13 @@
 # Changelog
 
+## August 28, 2026
+
+### Added
+- Wave 1 public Sales Partner signup with local-only validated intake, attribution capture, explicit consent, and a future server integration seam.
+- Wave 1 internal leadership plan covering lifecycle, economics, tracks, tiering, Sub-Sales Partner network, Dream Car governance, CRM roadmap, reporting, pilot, risks, and decisions.
+- Independent build and static validation scripts for both Wave 1 apps.
+- Separate verified Vercel preview and production deployments for both apps.
+
 ## August 27, 2026
 
 ### Added

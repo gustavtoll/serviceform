@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "check": "npm run build",
+    "build:signup": "npm --prefix apps/sales-partner-signup run build",
+    "build:internal-plan": "npm --prefix apps/sales-partner-internal-plan run build",
+    "check": "npm run build && npm --prefix apps/sales-partner-signup run check && npm --prefix apps/sales-partner-internal-plan run check",
     "deploy:preview": "npx --yes vercel",
     "deploy:production": "npx --yes vercel --prod"
   },

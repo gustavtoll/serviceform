@@ -1,0 +1,10 @@
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const js = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
+for (const field of ['partner_type','terms_consent','utm_source','utm_medium','utm_campaign','utm_content','referral_code','parent_sales_partner_id']) assert.match(html, new RegExp(`name="${field}"`));
+for (const claim of ['40% lifetime commission','90-day first-click','100 active deals','10% Sub-Sales Partner kickback']) assert.ok(html.includes(claim), `Missing approved input: ${claim}`);
+assert.ok(html.includes('Decision required:'));
+assert.ok(!/affiliate/i.test(html), 'Legacy terminology found');
+assert.ok(!/gohighlevel|leadconnector|hooks\.zapier/i.test(js), 'External CRM endpoint found in client');
+console.log('signup static validation passed');
