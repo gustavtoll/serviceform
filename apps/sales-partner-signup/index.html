@@ -39,20 +39,22 @@
                 <span class="field-status" aria-hidden="true">✓</span>
               </div>
               <p class="field-help" id="email-help">Use an inbox you check. No payment details are needed.</p>
+              <label class="consent" for="terms-consent"><input id="terms-consent" name="terms_consent" type="checkbox" required> <span>I agree that Serviceform may use this email to process my Sales Partner application and send its next step.</span></label>
+              <label class="honeypot" aria-hidden="true" tabindex="-1">Website <input name="website" type="text" autocomplete="off" tabindex="-1" aria-hidden="true"></label>
               <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
-              <button type="submit">Create my Sales Partner account <span aria-hidden="true">→</span></button>
+              <button id="submit-button" type="submit">Create my Sales Partner account <span aria-hidden="true">→</span></button>
             </form>
-            <div class="reassurance" aria-label="Signup details"><span>Email only</span><span>No payment details</span><span>Takes less than a minute</span></div>
-            <p class="next-step"><strong>What happens next:</strong> once the live connection is approved, this email will start account setup and receive the next steps.</p>
-            <div class="demo-note"><strong>Design-only preview</strong><span>No data leaves your browser, no email is sent, and no account is actually created yet.</span></div>
+            <div class="reassurance" aria-label="Signup details"><span>Email first</span><span>No payment details</span><span>Controlled pilot</span></div>
+            <p class="next-step"><strong>What happens next:</strong> approved pilot submissions create one application record and send the configured next step.</p>
+            <div class="demo-note"><strong>Internal pilot preview</strong><span>Pilot submission is limited to approved internal test email addresses. It does not create an approved partner account or financial entitlement.</span></div>
           </div>
 
           <section id="confirmation" class="confirmation" hidden tabindex="-1" aria-labelledby="confirmation-title">
             <span class="confirmation-mark" aria-hidden="true">✓</span>
-            <p class="confirmation-kicker">Account setup is ready</p>
-            <h2 id="confirmation-title">That’s the complete signup experience.</h2>
-            <p>Your email was saved only in this browser so you can preview the finished flow. No email was sent and no account was created.</p>
-            <p class="reference">Local preview reference <strong id="reference"></strong></p>
+            <p class="confirmation-kicker">Pilot application received</p>
+            <h2 id="confirmation-title">Your application is in the approved pilot flow.</h2>
+            <p>Check your inbox for the approved pilot follow-up. This does not mean a Sales Partner account, commission, or financial entitlement has been approved.</p>
+            <p class="reference">Pilot reference <strong id="reference"></strong></p>
             <button id="reset-form" type="button">Try another email</button>
           </section>
         </div>
@@ -100,7 +102,7 @@
       <p class="eyebrow">Ready when you are</p>
       <h2 id="closing-title">Start with one email.</h2>
       <a class="button" href="#signup">Create my Sales Partner account <span aria-hidden="true">↑</span></a>
-      <p>Less than a minute · No payment details · Design-only preview</p>
+      <p>Email first · No payment details · Controlled pilot</p>
     </section>
 
     <section class="terms" id="terms" aria-labelledby="terms-title">

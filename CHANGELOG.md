@@ -3,6 +3,7 @@
 ## August 29, 2026
 
 ### Added
+- Wave 4-A server-owned, closed GoHighLevel application pilot: consented email-first same-origin endpoint, server-only configuration, allowlisted pilot emails, contact upsert then Application opportunity creation, safe client responses, process-local idempotency/rate limiting, and test/runbook documentation. It is not deployed or activated.
 - W1-A.3 internal-review release package: a stable noindex Vercel preview alias, a ready-to-forward review message, section-by-section approval checklist, structured feedback template, release gates, and next-wave routing. No DNS, GoHighLevel, production, or merge action was performed.
 
 ### Changed

@@ -1,5 +1,13 @@
 # Deployment
 
+## Sales Partner signup W4-A automated GHL pilot — August 29, 2026
+
+- Implementation and local contract tests complete; **not deployed, configured, or activated**.
+- Existing `serviceform-sales-partner-signup` Vercel project has no configured environment variables; no GoHighLevel request was made.
+- Before any Preview deployment: add approved variable names/values to Preview only, use a controlled allowlisted email, inspect `target: preview`, then verify exactly one contact and one opportunity. See `docs/sales-partner-machine/w4-a-ghl-automated-pilot.md`.
+- Production alias, public activation, partner approval, referral issuance, financial entitlements, and all payout logic remain out of scope.
+
+
 ## Sales Partner signup W1-A.3 internal review release — August 29, 2026
 
 - Stable internal review alias: https://serviceform-sales-partner-review.vercel.app
