@@ -7,9 +7,9 @@ W3-A opportunity calculator, W3-B proof/asset approval factory, and W3-C e-comme
 All three applications pass their independent checks. Deployment verification is blocked:
 
 - W3-A command: `npx --yes vercel deploy --target preview --yes --scope gustavtolls-projects` from `apps/opportunity-calculator`.
-- Although the command explicitly requested `preview`, Vercel created the new project and returned deployment `dpl_Arix4XypbDTVSQPKFfWGBRc4aDsJ` with `target: production`, plus an automatic alias. This is not accepted or recorded as a Wave 3 preview URL.
-- Deployment stopped immediately for W3-A. W3-B and W3-C were not attempted because the same new-project behavior could violate the preview-only boundary again.
-- No `--prod` command was called and no existing production alias was altered. A separately authorized remediation is required before any Wave 3 deployment retry.
+- Although the command explicitly requested `preview`, Vercel created the new project and returned deployment `dpl_Arix4XypbDTVSQPKFfWGBRc4aDsJ` with `target: production`, plus automatic aliases. It was rejected and is not accepted or recorded as a Wave 3 preview URL.
+- Containment completed: both automatic aliases (`opportunity-calculator-three.vercel.app` and `opportunity-calculator-gustavtolls-projects.vercel.app`) and deployment `dpl_Arix4XypbDTVSQPKFfWGBRc4aDsJ` were removed. W3-B and W3-C were not attempted because the same new-project behavior could violate the preview-only boundary again.
+- No `--prod` command was called, no existing production alias was altered, and no Wave 3 production endpoint remains. A separately authorized remediation is required before any Wave 3 deployment retry.
 
 Review URLs therefore remain `Not deployed`. No CRM, analytics, cookies, email, account, payment, customer proof, payout, contest, or application-level production behavior is present.
 

@@ -3,8 +3,8 @@
 ## August 29, 2026
 
 ### Added
-- Wave 3 preview-only opportunity calculator, internal proof/asset approval readiness factory, and interactive e-commerce product presentation, each as an independent static Vite app with strict static validation and dual-layer noindex controls.
-- Wave 3 implementation plan and Wave 0–3 asset/delivery status register with explicit remaining gates and blocked dependencies.
+- Wave 3 static delivery suite: a transparent opportunity calculator, zero-approved-assets proof/approval factory, accessible product presentation, implementation plan, and Wave 0–3 asset/delivery status register; each app has static validation and dual-layer noindex controls.
+- Preview deployment is intentionally blocked pending a safe new-project Preview method. An unexpected W3-A production-target deployment and its automatic aliases were removed immediately; no Wave 3 production endpoint remains.
 - W1-A.3 internal-review release package: a stable noindex Vercel preview alias, a ready-to-forward review message, section-by-section approval checklist, structured feedback template, release gates, and next-wave routing. No DNS, GoHighLevel, production, or merge action was performed.
 
 ### Changed
