@@ -14,3 +14,7 @@ Use **Sales Partner**, **Sub-Sales Partner**, **Independent Sales Partner**, **C
 5. **Wave 4 — Pilot and advocacy:** controlled rollout, tier progression, Sub-Sales Partner growth, competition launch.
 
 No CRM workflow, production deployment, public claim, payout, or contest is activated by these planning documents.
+
+## Wave 3 delivery
+
+Wave 3 is implemented as three independent, noindex preview artifacts: a transparent illustrative opportunity calculator, a zero-approved-assets internal proof readiness factory, and a keyboard-accessible e-commerce product presentation. See the [Wave 3 implementation plan](../plans/2026-08-29-sales-partner-machine-wave-three.md) and [Wave 0–3 delivery register](wave-three-delivery-register.md). Preview implementation does not authorize publication, customer proof, CRM activity, payouts, terms, competition mechanics, or production deployment.
