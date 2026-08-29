@@ -2,6 +2,9 @@
 
 ## August 29, 2026
 
+### Added
+- W1-A.3 internal-review release package: a stable noindex Vercel preview alias, a ready-to-forward review message, section-by-section approval checklist, structured feedback template, release gates, and next-wave routing. No DNS, GoHighLevel, production, or merge action was performed.
+
 ### Changed
 - Reworked the email-first Sales Partner signup preview for W1-A.2 into a near-white, product-led Serviceform composition with a light header action, original non-claiming illustrative UI, compact program facts, contained three-step flow, and calmer closing action.
 

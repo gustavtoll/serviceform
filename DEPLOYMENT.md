@@ -1,5 +1,15 @@
 # Deployment
 
+## Sales Partner signup W1-A.3 internal review release — August 29, 2026
+
+- Stable internal review alias: https://serviceform-sales-partner-review.vercel.app
+- Alias target: https://serviceform-sales-partner-signup-200kxlru5-gustavtolls-projects.vercel.app
+- Target environment: Vercel `preview` (`READY`); the alias does not point to a production deployment or production alias.
+- DNS/GoHighLevel: not used or modified.
+- Internal release guide and feedback template: `docs/sales-partner-machine/w1-a3-internal-review-release.md`.
+
+The alias was assigned only after Vercel inspection confirmed the target is a ready preview deployment. A direct HTTPS request to the alias must return `200` with the expected W1-A.2 title and `X-Robots-Tag: noindex, nofollow` before internal distribution. This is an unlisted review link, not access-controlled security; no Serviceform DNS is needed.
+
 ## Sales Partner signup W1-A.2 preview — August 29, 2026
 
 - Branch: `design/sales-partner-signup-cro`
