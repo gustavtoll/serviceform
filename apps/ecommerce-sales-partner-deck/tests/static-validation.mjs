@@ -1,0 +1,15 @@
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const js = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
+const css = readFileSync(new URL('../src/style.css', import.meta.url), 'utf8');
+for (const term of ['Hard-to-find answers','Product fit','Assortment complexity','Cart uncertainty','Repetitive support','Auto parts / aftermarket','Supplements / nutrition','Online florists','Fishing / specialty','Furniture','First-call discovery','Claims & terms safety']) assert.ok(html.includes(term), `Missing ${term}`);
+for (const claim of ['4.24%','14.36%','3×','4.6%','70%']) assert.ok(!html.includes(claim), `Unapproved claim ${claim}`);
+for (const key of ['ArrowRight','ArrowLeft','PageDown','Home','End']) assert.ok(js.includes(key));
+assert.ok(html.includes('name="robots" content="noindex,nofollow"'));
+for (const token of ['--sf-espresso:#2d201b','--sf-cream:#f6f0e5','--sf-orange:#f26a2e','--sf-sage:#dce5d5','--sf-radius:24px']) assert.ok(css.includes(token));
+assert.ok(!css.includes('#6557ff'), 'Legacy violet token found');
+assert.ok(!css.includes('text-decoration:none;color:var(--sf-ink)}'), 'Espresso text overrides white header brand');
+assert.ok(html.includes('class="skip"'));
+assert.ok(css.includes('prefers-reduced-motion:reduce'));
+console.log('e-commerce deck static validation passed');

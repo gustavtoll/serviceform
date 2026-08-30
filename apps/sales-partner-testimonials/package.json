@@ -1,0 +1,1 @@
+{"name":"serviceform-sales-partner-testimonials","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","test":"node tests/static-validation.mjs","check":"npm run test && npm run build"},"devDependencies":{"vite":"latest"}}

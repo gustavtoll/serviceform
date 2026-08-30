@@ -1,11 +1,12 @@
-// Future server-side adapter boundary. This Wave 1 client never calls GoHighLevel.
-export function createApplicationEnvelope(values, attribution) {
+// Browser-only preview envelope. A separately authorized server adapter will own delivery later.
+export function createLocalSignupEnvelope(email, attribution) {
+  const normalizedEmail = email.trim().toLowerCase();
   return {
-    schema_version: 'w1.application.v1',
-    idempotency_key: `${values.email.trim().toLowerCase()}:${attribution.referral_code || 'direct'}`,
-    submitted_at: new Date().toISOString(),
-    applicant: values,
+    schema_version: 'sales-partner.signup-preview.v1',
+    idempotency_key: `${normalizedEmail}:${attribution.referral_code || 'direct'}`,
+    saved_at: new Date().toISOString(),
+    email: normalizedEmail,
     attribution,
-    delivery: { mode: 'local-demo', external_crm_called: false },
+    delivery: { mode: 'local-preview', external_system_called: false },
   };
 }
