@@ -30,7 +30,7 @@ npm run verify:vercel-release -- \
 
 | Option | Required | Meaning |
 |---|---:|---|
-| `--url` | Yes | Deployment or alias URL to inspect and fetch. |
+| `--url` | Yes | Public HTTPS deployment or alias URL to inspect and fetch; embedded credentials are rejected. |
 | `--target` | Yes | Exact expected Vercel target: `preview` or `production`. |
 | `--title` | No | Required substring in the returned HTML `<title>`. |
 | `--noindex` | No | Requires `X-Robots-Tag` to include `noindex`. |

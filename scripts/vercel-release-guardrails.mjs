@@ -44,6 +44,14 @@ export function parseCliArguments(argumentsList) {
   }
 
   if (!options.url) throw new Error('--url is required');
+  try {
+    const parsedUrl = new URL(options.url);
+    if (parsedUrl.protocol !== 'https:' || parsedUrl.username || parsedUrl.password) {
+      throw new Error('unsupported URL');
+    }
+  } catch {
+    throw new Error('--url must be an HTTPS URL without embedded credentials');
+  }
   if (!options.target) throw new Error('--target is required');
   if (!['preview', 'production'].includes(normalize(options.target))) {
     throw new Error('--target must be preview or production');

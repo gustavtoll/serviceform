@@ -5,6 +5,8 @@ import { evaluateReleaseEvidence, parseCliArguments } from '../scripts/vercel-re
 test('requires a URL and target for CLI use', () => {
   assert.throws(() => parseCliArguments([]), /--url is required/);
   assert.throws(() => parseCliArguments(['--url', 'https://example.vercel.app']), /--target is required/);
+  assert.throws(() => parseCliArguments(['--url', 'http://example.vercel.app', '--target', 'preview']), /--url must be an HTTPS URL/);
+  assert.throws(() => parseCliArguments(['--url', 'not-a-url', '--target', 'preview']), /--url must be an HTTPS URL/);
 });
 
 test('parses read-only release verification options', () => {
