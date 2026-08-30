@@ -1,56 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Apply to become a Serviceform Sales Partner.">
-  <meta name="theme-color" content="#faf9ff"><title>Serviceform Sales Partner Program</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Start your Serviceform Sales Partner account setup with one email address.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#2d201b">
+  <title>Start as a Serviceform Sales Partner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-  <a class="skip" href="#apply">Skip to application</a>
-  <header><a class="brand" href="#top" aria-label="Serviceform home">serviceform<span>.</span></a><a class="header-cta" href="#apply">Apply now <span>↘</span></a></header>
+  <a class="skip" href="#signup">Skip to email signup</a>
+  <header>
+    <a class="brand" href="#top" aria-label="Serviceform Sales Partner home">serviceform<span>.</span></a>
+    <a class="header-cta" href="#signup">Start with email <span aria-hidden="true">↘</span></a>
+  </header>
+
   <main id="top">
-    <section class="hero">
-      <div class="kicker"><span>Sales Partner program</span><span>Applications / Wave 1</span></div>
-      <div class="hero-grid"><div><h1>Turn your network into <em>lasting upside.</em></h1><p class="lede">Introduce ambitious e-commerce teams to Serviceform. We help them turn product questions into confident buying decisions—you build a revenue stream around the relationships you already trust.</p><a class="button" href="#apply">Choose your track <span>↓</span></a></div>
-      <aside><p class="aside-label">The offer</p><strong>40%</strong><p>lifetime commission, subject to signed program and payout terms.</p></aside></div>
-      <div class="signal"><span>Find the fit</span><i></i><span>Make the introduction</span><i></i><span>Grow together</span></div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-layout">
+        <div class="hero-intro">
+          <p class="eyebrow">Sales Partner program</p>
+          <div class="hero-copy">
+            <h1 id="hero-title">One email.<br><em>Your next chapter.</em></h1>
+            <p class="lede">Start your Serviceform Sales Partner account setup and help e-commerce teams turn product questions into confident buying decisions.</p>
+          </div>
+
+          <div class="signup-card" id="signup">
+            <div class="card-heading"><span>Start here</span><span>01 / 01</span></div>
+            <h2>Enter the email you want connected to your Sales Partner account.</h2>
+            <form id="partner-form" novalidate>
+              <label for="email">Work email address</label>
+              <div class="email-control">
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourcompany.com" aria-describedby="email-help form-error" required>
+                <span class="field-status" aria-hidden="true">✓</span>
+              </div>
+              <p class="field-help" id="email-help">Use an inbox you check. No payment details are needed.</p>
+              <label class="consent" for="terms-consent"><input id="terms-consent" name="terms_consent" type="checkbox" required> <span>I agree that Serviceform may use this email to process my Sales Partner application and send its next step.</span></label>
+              <label class="honeypot" aria-hidden="true" tabindex="-1">Website <input name="website" type="text" autocomplete="off" tabindex="-1" aria-hidden="true"></label>
+              <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
+              <button id="submit-button" type="submit">Create my Sales Partner account <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="reassurance" aria-label="Signup details"><span>Email first</span><span>No payment details</span><span>Controlled pilot</span></div>
+            <p class="next-step"><strong>What happens next:</strong> approved pilot submissions create one application record and send the configured next step.</p>
+            <div class="demo-note"><strong>Internal pilot preview</strong><span>Pilot submission is limited to approved internal test email addresses. It does not create an approved partner account or financial entitlement.</span></div>
+          </div>
+
+          <section id="confirmation" class="confirmation" hidden tabindex="-1" aria-labelledby="confirmation-title">
+            <span class="confirmation-mark" aria-hidden="true">✓</span>
+            <p class="confirmation-kicker">Pilot application received</p>
+            <h2 id="confirmation-title">Your application is in the approved pilot flow.</h2>
+            <p>Check your inbox for the approved pilot follow-up. This does not mean a Sales Partner account, commission, or financial entitlement has been approved.</p>
+            <p class="reference">Pilot reference <strong id="reference"></strong></p>
+            <button id="reset-form" type="button">Try another email</button>
+          </section>
+        </div>
+
+        <aside class="product-visual" aria-hidden="true">
+          <div class="visual-top"><span>Serviceform workspace</span><i></i><i></i><i></i></div>
+          <div class="visual-body">
+            <div class="visual-nav"><b>Conversations</b><span>Introductions</span><span>Resources</span></div>
+            <div class="visual-thread">
+              <div class="thread-heading"><span>Product question</span><strong>New introduction</strong></div>
+              <div class="message customer"><small>Product question</small><p>Which option fits what I need?</p></div>
+              <div class="message agent"><small>Guided response</small><p>Let’s narrow it down together.</p><div class="choice-row"><span>Compare options</span><span>Ask a question</span></div></div>
+              <div class="visual-status"><span class="status-dot"></span><div><small>Conversation state</small><strong>Qualified conversation</strong></div></div>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <section class="program" aria-labelledby="program-title"><div class="section-mark">01 / Program</div><div><h2 id="program-title">Built for compounding relationships.</h2><div class="benefits">
-      <article><span>01</span><h3>40% lifetime commission</h3><p>Earn commission on eligible referred customer revenue for the lifetime defined in signed program terms.</p></article>
-      <article><span>02</span><h3>90-day first-click crediting</h3><p>The first valid tracked click opens a 90-day credit window, subject to attribution review and final terms.</p></article>
-      <article><span>03</span><h3>Dream Car lease</h3><p>A qualifying vehicle lease is maintained while you sustain 100 active deals. Eligibility and lease rules require approval.</p></article>
-      <article><span>04</span><h3>10% network kickback</h3><p>Recruit approved Sub-Sales Partners and receive a 10% kickback. The calculation base and payout terms remain under review.</p></article>
-    </div><a class="terms" href="#terms">Review terms status →</a></div></section>
-
-    <section class="tracks" aria-labelledby="tracks-title"><div class="section-mark">02 / Tracks</div><div><h2 id="tracks-title">One program. Three ways in.</h2><div class="track-grid">
-      <article><span>Independent</span><h3>Trusted introductions, one relationship at a time.</h3><p>For consultants, operators, and connected sellers who know where Serviceform can help.</p></article>
-      <article><span>Creator</span><h3>Turn useful content into qualified conversations.</h3><p>For educators and community builders with an audience in commerce, growth, or customer experience.</p></article>
-      <article><span>Agency / Company</span><h3>Add measurable value across a client portfolio.</h3><p>For teams that want a structured co-selling motion and company-level attribution.</p></article>
-    </div></div></section>
-
-    <section class="application" id="apply" aria-labelledby="apply-title"><div class="form-intro"><span class="section-mark">03 / Apply</span><h2 id="apply-title">Tell us how you create opportunity.</h2><p>Your application is saved only in this browser for this Wave 1 demonstration. It is not sent to GoHighLevel or any external CRM.</p></div>
-      <form id="partner-form" novalidate>
-        <div class="form-row"><label>First name<input name="first_name" autocomplete="given-name" required></label><label>Last name<input name="last_name" autocomplete="family-name" required></label></div>
-        <div class="form-row"><label>Email<input type="email" name="email" autocomplete="email" required></label><label>Company <span>(optional)</span><input name="company" autocomplete="organization"></label></div>
-        <label>Website or social URL<input type="url" name="website_or_social_url" placeholder="https://" required></label>
-        <fieldset><legend>Partner Type</legend><div class="choices"><label><input type="radio" name="partner_type" value="independent" required><span><b>Independent</b>Direct relationships</span></label><label><input type="radio" name="partner_type" value="creator"><span><b>Creator</b>Audience-led growth</span></label><label><input type="radio" name="partner_type" value="agency_company"><span><b>Agency / Company</b>Portfolio partnerships</span></label></div></fieldset>
-        <div class="form-row"><label>Primary market<input name="market" required placeholder="e.g. US e-commerce"></label><label>Audience or client count<input name="audience_or_client_count" required placeholder="Approximate range"></label></div>
-        <label>How would you introduce Serviceform?<textarea name="primary_promotion_method" rows="4" required></textarea></label>
-        <label class="consent"><input type="checkbox" name="terms_consent" required><span>I consent to Serviceform reviewing this application and contacting me about the Sales Partner program. I understand that program, payout, privacy, and Dream Car terms are placeholders pending formal review and must be accepted separately before participation.</span></label>
-        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="referral_code"><input type="hidden" name="parent_sales_partner_id">
-        <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
-        <button type="submit">Submit application <span>↗</span></button>
-        <p class="fineprint">Demo intake only · No CRM connection · No payout activation</p>
-      </form>
-      <section id="confirmation" class="confirmation" hidden tabindex="-1"><span>Application saved</span><h2>Thank you. Your interest is on record.</h2><p>This safe Wave 1 demo stored your application locally in this browser. No external system was contacted. Reference: <strong id="reference"></strong></p><button id="reset-form" type="button">Submit another response</button></section>
+    <section class="program" id="program" aria-labelledby="program-title">
+      <div class="section-mark">Program inputs <span>02</span></div>
+      <div class="program-heading">
+        <p class="eyebrow">Built around relationships</p>
+        <h2 id="program-title">The essentials,<br>clearly stated.</h2>
+        <p>Bring the right e-commerce teams into a useful conversation. These proposed inputs remain subject to approved and signed terms.</p>
+      </div>
+      <ol class="facts">
+        <li><span>01</span><div><h3>40% lifetime commission</h3><p>On eligible referred customer revenue.</p></div></li>
+        <li><span>02</span><div><h3>90-day first-click crediting</h3><p>Subject to attribution review and final terms.</p></div></li>
+        <li><span>03</span><div><h3>10% Sub-Sales Partner kickback</h3><p>Subject to calculation, approval, and payout terms.</p></div></li>
+        <li><span>04</span><div><h3>Dream Car continuity</h3><p>The proposed lease benefit continues at 100 active deals, with eligibility and lease rules still requiring approval.</p></div></li>
+      </ol>
     </section>
 
-    <section class="terms-section" id="terms"><div class="section-mark">04 / Terms status</div><div><h2>Transparent by design.</h2><p>The 40% lifetime commission, 90-day first-click crediting, Dream Car lease continuity at 100 active deals, and 10% Sub-Sales Partner kickback are program inputs. They are not active offers until incorporated into approved, signed terms.</p><ul><li><b>Decision required:</b> commission base, schedule, refunds, clawbacks, taxes, and definition of “lifetime.”</li><li><b>Decision required:</b> “active deal” grace periods and Dream Car eligibility, lease, tax, market, and off-ramp rules.</li><li><b>Decision required:</b> the 10% Sub-Sales Partner kickback calculation base and network approval rules.</li></ul><p class="review">Placeholder / leadership and legal review required before program activation.</p></div></section>
+    <section class="how" aria-labelledby="how-title">
+      <div class="how-heading"><p class="eyebrow">A simple path</p><h2 id="how-title">Start now.<br>Add detail later.</h2></div>
+      <ol>
+        <li><span>01</span><div><h3>Enter your email</h3><p>One field is enough to begin.</p></div></li>
+        <li><span>02</span><div><h3>Receive your next step</h3><p>Setup guidance follows only when the live workflow is approved.</p></div></li>
+        <li><span>03</span><div><h3>Make introductions</h3><p>Use approved resources to identify fit and open a useful conversation.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">Ready when you are</p>
+      <h2 id="closing-title">Start with one email.</h2>
+      <a class="button" href="#signup">Create my Sales Partner account <span aria-hidden="true">↑</span></a>
+      <p>Email first · No payment details · Controlled pilot</p>
+    </section>
+
+    <section class="terms" id="terms" aria-labelledby="terms-title">
+      <div class="section-mark">Terms status <span>04</span></div>
+      <div><h2 id="terms-title">Clear before activation.</h2><p>The 40% lifetime commission, 90-day first-click crediting, Dream Car lease continuity at 100 active deals, and 10% Sub-Sales Partner kickback are program inputs—not active offers until included in approved, signed terms. Commission base, attribution, refunds, taxes, eligibility, and payout rules remain subject to formal review.</p></div>
+    </section>
   </main>
-  <footer><a class="brand" href="#top">serviceform<span>.</span></a><p>Sales Partner Program · Wave 1</p><p>© 2026 Serviceform</p></footer>
+
+  <footer><a class="brand" href="#top">serviceform<span>.</span></a><p>Sales Partner Program · Design preview</p><p>© 2026 Serviceform</p></footer>
   <script type="module" src="/src/main.js"></script>
-</body></html>
+</body>
+</html>

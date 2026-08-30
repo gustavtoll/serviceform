@@ -1,6 +1,40 @@
 # Changelog
 
+## August 29, 2026
+
+### Added
+- Wave 4-A server-owned, closed GoHighLevel application pilot: consented email-first same-origin endpoint, server-only configuration, allowlisted pilot emails, contact upsert then Application opportunity creation, safe client responses, process-local idempotency/rate limiting, and test/runbook documentation. It is not deployed or activated.
+- W1-A.3 internal-review release package: a stable noindex Vercel preview alias, a ready-to-forward review message, section-by-section approval checklist, structured feedback template, release gates, and next-wave routing. No DNS, GoHighLevel, production, or merge action was performed.
+
+### Changed
+- Reworked the email-first Sales Partner signup preview for W1-A.2 into a near-white, product-led Serviceform composition with a light header action, original non-claiming illustrative UI, compact program facts, contained three-step flow, and calmer closing action.
+
+### Safety
+- Kept the preview email-only, local-only, noindex, and free of GoHighLevel, API, email, account, analytics, proof, metric, or production behavior.
+
 ## August 28, 2026
+
+### Planned
+- Added the section-by-section Serviceform Homepage Parity implementation plan for the Sales Partner signup. It defines the next design wave, missing product/proof inputs, source boundaries, and preview-only verification; it does not authorize GHL or a production release.
+
+### Changed
+- Redesigned the Sales Partner signup as a design-only, email-first conversion preview with one required field, outcome-led CTA, local-only confirmation, repeated signup paths, and concise program orientation.
+- Added a CRO friction audit, future server handoff contract, deferred instrumentation events, failure requirements, and A/B hypotheses without activating any external workflow.
+
+### Safety
+- The signup preview sends no email, creates no account, performs no network request or CRM mutation, remains noindex, and is not a production deployment.
+
+### Corrected
+- Replaced the superseded blue/violet Sales Partner interpretation with the approved Mira-aligned warm cream, espresso, orange, sage, muted-sky, and blush system across all four Wave 1 and Wave 2 surfaces.
+- Relaxed display tracking and line height, raised body leading to at least 1.5, and added static regression checks that reject the legacy violet token.
+
+### Added
+- Wave 2 private Sales Partner resource hub with track-specific activation, ICP guidance, scripts, qualification, source discipline, pilot rhythm, FAQ, and terms guardrails.
+- Wave 2 interactive e-commerce Sales Partner deck with general vertical scenarios, first-call discovery, accessible keyboard controls, and explicit claims safety.
+- Formal Wave 2 plan, PAM handoff v2, launch prompts, independent static tests, and noindex Vercel configurations.
+
+### Changed
+- Extended the root check pipeline to validate and build both Wave 2 apps.
 
 ### Added
 - `docs/brand/serviceform-brand-kit.md` as the mandatory Serviceform main-website visual system for all present and future Sales Partner landing pages and presentations.

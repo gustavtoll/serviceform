@@ -1,31 +1,67 @@
-import { createApplicationEnvelope } from './integration.js';
+import { createPilotPayload, submitPilotApplication } from './integration.js';
 
 const form = document.querySelector('#partner-form');
+const email = document.querySelector('#email');
+const consent = document.querySelector('#terms-consent');
+const website = form.elements.website;
 const confirmation = document.querySelector('#confirmation');
 const error = document.querySelector('#form-error');
-const params = new URLSearchParams(location.search);
-const attributionFields = ['utm_source','utm_medium','utm_campaign','utm_content','referral_code','parent_sales_partner_id'];
+const signupCard = document.querySelector('.signup-card');
+const submitButton = document.querySelector('#submit-button');
 
-const attribution = Object.fromEntries(attributionFields.map((field) => [field, params.get(field) || '']));
-attributionFields.forEach((field) => { form.elements[field].value = attribution[field]; });
+function setError(message = '') {
+  error.textContent = message;
+  email.setAttribute('aria-invalid', message ? 'true' : 'false');
+}
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); error.textContent = '';
-  if (!form.checkValidity()) {
-    error.textContent = 'Please complete every required field and provide a valid email and URL.';
-    form.reportValidity(); return;
+function setSubmitting(isSubmitting) {
+  submitButton.disabled = isSubmitting;
+  submitButton.setAttribute('aria-busy', String(isSubmitting));
+  if (isSubmitting) submitButton.textContent = 'Submitting your pilot application…';
+  else submitButton.innerHTML = 'Create my Sales Partner account <span aria-hidden="true">→</span>';
+}
+
+email.addEventListener('input', () => {
+  if (email.validity.valid) setError();
+});
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  setError();
+  if (email.validity.valueMissing) {
+    setError('Enter your email address to continue.');
+    email.focus();
+    return;
   }
-  const raw = Object.fromEntries(new FormData(form));
-  raw.terms_consent = form.elements.terms_consent.checked;
-  const applicant = Object.fromEntries(Object.entries(raw).filter(([key]) => !attributionFields.includes(key)));
-  const envelope = createApplicationEnvelope(applicant, attribution);
-  const reference = `SP-${Date.now().toString(36).toUpperCase()}`;
-  localStorage.setItem('serviceform_sales_partner_application', JSON.stringify({ reference, ...envelope }));
-  document.querySelector('#reference').textContent = reference;
-  form.hidden = true; confirmation.hidden = false; confirmation.focus();
+  if (email.validity.typeMismatch) {
+    setError('Enter a complete email address, such as you@yourcompany.com.');
+    email.focus();
+    return;
+  }
+  if (!consent.checked) {
+    setError('Confirm consent so Serviceform can process this pilot application.');
+    consent.focus();
+    return;
+  }
+
+  setSubmitting(true);
+  try {
+    const result = await submitPilotApplication(createPilotPayload({ email: email.value, termsConsent: consent.checked, website: website.value }));
+    document.querySelector('#reference').textContent = result.requestId;
+    signupCard.hidden = true;
+    confirmation.hidden = false;
+    confirmation.focus();
+  } catch (submissionError) {
+    setError(submissionError.message || 'We could not submit the pilot application. Please try again later.');
+  } finally {
+    setSubmitting(false);
+  }
 });
 
 document.querySelector('#reset-form').addEventListener('click', () => {
-  form.reset(); attributionFields.forEach((field) => { form.elements[field].value = attribution[field]; });
-  confirmation.hidden = true; form.hidden = false; form.querySelector('input').focus();
+  form.reset();
+  setError();
+  confirmation.hidden = true;
+  signupCard.hidden = false;
+  email.focus();
 });

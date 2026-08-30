@@ -1,68 +1,54 @@
 # Serviceform brand kit for Sales Partner assets
 
-Reference inspected on 28 August 2026: [Serviceform main website](https://www.serviceform.com/?ab_h1=a).
+Approved visual reference inspected on 28 August 2026: [Mira prospecting playbook](https://serviceform-tau.vercel.app).
 
-This is an implementation guide derived from the website's visual system. It does not license copying website copy, logo files, customer logos, product images, or other protected assets. Use the text-rendered `serviceform.` wordmark only where an approved logo asset is unavailable.
+Translate its visual DNA; do not copy Mira copy, protected assets, customer logos, or product imagery. Use the text-rendered `serviceform.` wordmark only where an approved logo asset is unavailable.
 
 ## Design character
 
-Sales Partner pages and presentations should feel like product surfaces from the main Serviceform family: clean and light, direct, technically confident, spacious, and vivid. Prefer an off-white canvas, near-black type, a restrained blue-to-violet accent, rounded product cards, and compact pill controls. Do not return to the green/cream-only Wave 1 campaign styling.
+Sales Partner pages and presentations belong to the warm, useful Serviceform/Mira product family: cream canvas, espresso structure, restrained orange emphasis, quiet pastel product cards, generous whitespace, and compact UI-like controls. Blue/violet is not the approved Sales Partner system.
 
 ## Core tokens
 
 | Role | Token | Value | Use |
 | --- | --- | --- | --- |
-| Ink | `--sf-ink` | `#15131f` | Primary text, dark feature surfaces |
-| Secondary ink | `--sf-ink-soft` | `#545166` | Body copy on light surfaces |
-| Paper | `--sf-paper` | `#faf9ff` | Page canvas |
-| White | `--sf-white` | `#ffffff` | Cards and elevated navigation |
-| Panel | `--sf-panel` | `#f0effa` | Quiet alternate surface |
-| Violet | `--sf-violet` | `#6557ff` | Primary brand accent and focus context |
-| Violet dark | `--sf-violet-dark` | `#4939df` | Hover/pressed accent |
-| Blue | `--sf-blue` | `#1784ff` | Gradient partner and focus ring |
-| Cyan tint | `--sf-cyan` | `#dff2ff` | Feature panel background |
-| Lilac tint | `--sf-lilac` | `#e8e3ff` | Feature panel and selected state |
-| Divider | `--sf-line` | `rgba(21,19,31,.12)` | Borders and separators |
-| Card radius | `--sf-radius` | `28px` | Major cards and panels |
-| Pill radius | `--sf-pill` | `999px` | CTAs, chips, navigation |
-| Elevation | `--sf-shadow` | `0 24px 70px rgba(42,32,110,.12)` | Sparse product-card elevation |
+| Espresso | `--sf-espresso` | `#2d201b` | Primary text, compact headers, limited contrast sections |
+| Soft ink | `--sf-ink-soft` | `#665851` | Body copy and secondary information |
+| Cream | `--sf-cream` | `#f6f0e5` | Default page canvas |
+| Warm white | `--sf-white` | `#fffdf8` | Elevated cards and fields |
+| Orange | `--sf-orange` | `#f26a2e` | Reserved emphasis, primary CTAs, focus context |
+| Orange dark | `--sf-orange-dark` | `#c94b1c` | Hover and pressed states |
+| Sage | `--sf-sage` | `#dce5d5` | Restrained product cards |
+| Muted sky | `--sf-sky` | `#d8e5ea` | Restrained product cards |
+| Blush | `--sf-blush` | `#efd8d0` | Restrained product cards |
+| Divider | `--sf-line` | `rgba(45,32,27,.14)` | Borders and separators |
+| Card radius | `--sf-radius` | `24px` | Major cards and panels; 20–24px is preferred |
+| Pill radius | `--sf-pill` | `999px` | Labels, buttons, navigation, mini controls |
+| Elevation | `--sf-shadow` | `0 24px 70px rgba(67,45,35,.10)` | Sparse, low-opacity elevation |
 
-Blue and violet may form a `115deg` gradient for primary CTAs or a single focal panel. Never use the gradient behind long body copy. Status colors must convey meaning independently of the brand accent.
+Orange is a focal signal, not a background treatment for long copy. Pastels should be alternated deliberately and remain quiet enough for dark text.
 
 ## Typography
 
-- Primary family: `Instrument Sans`, then system UI fallbacks. Use the variable width/weight face when available.
-- Utility family: `DM Mono` for short labels, counters, metadata, and presentation controls only.
-- Display headings: weight `650`, tight tracking (`-0.06em` to `-0.075em`), line-height `0.82–0.95`, and responsive `clamp()` sizing.
-- Body copy: normal width, line-height at least `1.45`, and a readable maximum line length near 65 characters.
-- Use color, weight, and spacing for emphasis. Avoid decorative serif italics as the primary campaign signature.
+- Primary family: `Instrument Sans`, then system UI fallbacks; `DM Mono` only for short labels, counters, and controls.
+- Display headings are large, heavy, clean, and left aligned, with line-height around `0.94–1.05` and moderate negative tracking no tighter than `-0.045em`.
+- Body copy uses line-height of at least `1.5`, comfortable spacing, and a readable maximum line length near 65 characters.
+- Audit every desktop and mobile breakpoint for touching glyphs, clipping, and crowded wraps.
 
-## Surfaces and product UI
+## Composition and controls
 
-- Keep the default canvas light. Use near-black sections sparingly for tracks, decisions, or closing moments.
-- Cards use white or a subtle translucent white, 1px low-contrast borders, 20–28px radii, and restrained shadow.
-- Feature panels may use cyan/lilac gradients. Keep text near-black for contrast.
-- UI-like metrics, lifecycle steps, and decision rows should look structured and functional rather than ornamental.
-- Whitespace is part of the system: desktop sections generally use 6–8rem vertical padding and a content width around 1320px.
+- Use a warm cream canvas with generous whitespace and light warm-gray dividers.
+- Headers are compact, dark espresso, rounded, and visually distinct from the page.
+- Cards use warm white, sage, muted sky, or blush; use 20–24px soft radii and restrained shadows.
+- Keep dark sections limited to high-contrast decisions, tracks, or closing moments.
+- Primary CTAs are solid espresso or orange pills; secondary actions use warm white or transparent fills and subtle borders.
+- Labels and mini controls are compact pills with coherent letter spacing and minimum 44px interactive targets.
 
-## Navigation and CTAs
+## Accessibility, responsive behavior, and governance
 
-- Navigation is compact, rounded, elevated, and may use a lightly translucent white backdrop.
-- Primary CTAs are high-contrast pills: near-black or violet/blue gradient with white text. Minimum target size is 44×44px.
-- Secondary actions may use a white fill and subtle border or a simple underlined text treatment.
-- Hover must not be the only state. Provide visible keyboard focus and pressed/selected styling.
-
-## Accessibility and responsive rules
-
-- Preserve semantic `header`, `main`, `section`, `nav`, `footer`, form, heading, and list structures.
-- Provide a first-focus skip link and a clearly visible `:focus-visible` ring with at least 3px thickness.
-- Maintain WCAG AA contrast: 4.5:1 for normal text and 3:1 for large text and essential UI boundaries.
-- Do not place normal text directly on the blue/violet gradient unless the contrast has been checked.
-- Keep labels visible; placeholders are examples, not replacements for labels. Validation messages remain announced with `role="alert"`/live regions.
-- At 850px and below, collapse multi-column layouts. At 560px and below, use single-column form choices and content cards with at least 5vw side padding.
-- Respect `prefers-reduced-motion: reduce`: remove smooth scrolling and reduce animation/transition duration to effectively instant.
-- Internal assets retain `noindex,nofollow` both in HTML and at the hosting header layer.
-
-## Governance
-
-This guide is authoritative for every present and future Serviceform Sales Partner landing page and presentation. New artifacts must use these tokens and patterns or document an approved exception. Program facts, policy gates, claims controls, and deployment authorization remain governed by `docs/sales-partner-machine/` and are not changed by visual alignment.
+- Preserve semantic landmarks, first-focus skip links, and a visible orange `:focus-visible` ring at least 3px thick.
+- Maintain WCAG AA contrast, persistent labels, announced validation messages, and meaningful non-color state cues.
+- Collapse multi-column layouts at 850–900px and use single-column cards/forms by 560px with at least 5vw side padding.
+- Respect `prefers-reduced-motion: reduce` by removing smooth scrolling and reducing transitions.
+- Internal/demo assets retain `noindex,nofollow` in HTML and at the hosting header layer.
+- Program facts, policy gates, claims controls, and deployment authorization remain governed by `docs/sales-partner-machine/`; visual alignment changes none of them.
