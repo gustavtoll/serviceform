@@ -31,6 +31,8 @@ assert.ok(!css.includes('#f26a2e'), 'Obsolete saturated red-orange token found')
 assert.ok(!css.includes('#6557ff'), 'Legacy violet token found');
 const header = html.match(/<header\b[\s\S]*?<\/header>/i)?.[0] || '';
 assert.match(header, /<a\b(?=[^>]*class="header-cta")(?=[^>]*href="#signup")/i, 'Header CTA must use its own signup anchor treatment');
+assert.match(css, /header\s*\{[^}]*background:\s*rgba\(45,32,27,\.78\)[^}]*backdrop-filter:\s*blur\(16px\)\s+saturate\(130%\)/i, 'Header needs a translucent frosted-glass treatment');
+assert.match(css, /@supports\s*\(not\s*\(backdrop-filter:\s*blur\(1px\)\)\)[\s\S]*?header\s*\{[^}]*background:\s*#2d201b/i, 'Header needs a solid fallback when glass blur is unavailable');
 assert.match(html, /<aside\b(?=[^>]*class="product-visual")(?=[^>]*aria-hidden="true")[^>]*>/i, 'Decorative product visual missing');
 assert.match(css, /\.product-visual\s*\{[^}]*pointer-events:none/i, 'Product visual must not intercept clicks');
 assert.doesNotMatch(html, /trusted by|testimonial|shopify|klarna|nike|adidas|\b\d+[,.]?\d*% (?:conversion|growth|increase)/i, 'Unapproved social proof or named outcome found');
