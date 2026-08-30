@@ -15,11 +15,19 @@ npm run dev
 
 Validate a production build with `npm run check`.
 
-## Deploy
+## Release safety
 
-- Preview/test: `npm run deploy:preview`
-- Production: `npm run deploy:production`
+There are intentionally **no root deployment shortcuts**. A requested Vercel target is not evidence of its actual target, particularly on a project’s first deployment. Release authorization, app-specific deployment, and post-deployment evidence are separate controls.
 
-Deployments are handled through Vercel after linking the project.
+Before sharing, aliasing, or recording any Vercel URL, run the [release guardrail](./docs/sales-partner-machine/vercel-release-guardrails.md):
 
-Deployment URLs and verification evidence are recorded in [`DEPLOYMENT.md`](./DEPLOYMENT.md).
+```bash
+npm run verify:vercel-release -- \
+  --url https://your-deployment-or-alias.vercel.app \
+  --target preview \
+  --title "Expected page title" \
+  --noindex \
+  --scope gustavtolls-projects
+```
+
+A passing technical check does not itself authorize release, CRM activity, public claims, or production publication. Deployment URLs and verified evidence are recorded in [`DEPLOYMENT.md`](./DEPLOYMENT.md).
