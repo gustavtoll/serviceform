@@ -1,12 +1,72 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Illustrative Opportunity Calculator | Serviceform</title><link rel="stylesheet" href="/src/style.css"></head><body>
-<a class="skip" href="#calculator">Skip to calculator</a><header><span class="brand">serviceform.</span><span class="tag">Internal preview · W3-A</span></header>
-<main><section class="hero"><p class="eyebrow">Transparent planning tool</p><h1>Explore an illustrative monthly opportunity.</h1><p>Change every assumption and see each step of the formula. This is an <strong>Illustrative opportunity model</strong>—not customer proof, not a forecast, not partner earnings, not a commission calculation, and not a guaranteed result.</p></section>
-<section id="calculator" class="calculator" aria-labelledby="calc-title"><div><p class="eyebrow">Editable assumptions</p><h2 id="calc-title">Your scenario</h2><div class="fields">
-<label>Monthly site traffic <input id="traffic" name="traffic" type="number" min="0" step="1000" value="400000" inputmode="numeric"></label>
-<label>Interaction rate <span><input id="interaction" name="interaction" type="number" min="0" max="100" step="0.1" value="7" inputmode="decimal">%</span></label>
-<label>Lead rate <span><input id="leadRate" name="leadRate" type="number" min="0" max="100" step="0.1" value="5" inputmode="decimal">%</span></label>
-<label>Average revenue per sale <span>$<input id="revenue" name="revenue" type="number" min="0" step="10" value="300" inputmode="decimal"></span></label>
-<label>Closing rate <span><input id="closeRate" name="closeRate" type="number" min="0" max="100" step="0.1" value="5" inputmode="decimal">%</span></label></div></div>
-<div class="results" aria-live="polite" aria-atomic="true"><p class="eyebrow">Calculated path</p><h2>Monthly opportunity</h2><dl><div><dt>Chats</dt><dd id="chats">28,000</dd></div><div><dt>Leads</dt><dd id="leads">1,400</dd></div><div><dt>Potential created</dt><dd id="potential">$420,000</dd></div><div class="total"><dt>Monthly opportunity</dt><dd id="opportunity">$21,000</dd></div></dl><p id="formula">400,000 × 7% × 5% × $300 × 5%</p></div></section>
-<section class="scenarios" aria-labelledby="scenarios-title"><p class="eyebrow">Source screenshot assumptions</p><h2 id="scenarios-title">Two reference scenarios</h2><div class="scenario-grid"><article><h3>Low · default</h3><p>400,000 traffic · 7% interaction · 5% lead · $300 per sale · 5% closing</p><p><strong>28,000</strong> chats · <strong>1,400</strong> leads · <strong>$420,000</strong> potential · <strong>$21,000</strong> monthly opportunity</p><button type="button" data-preset="low">Load low scenario</button></article><article><h3>High · source scenario</h3><p>400,000 traffic · 10% interaction · 15% lead · $300 per sale · 10% closing</p><p><strong>40,000</strong> chats · <strong>6,000</strong> leads · <strong>$1,800,000</strong> potential · <strong>$180,000</strong> monthly opportunity</p><button type="button" data-preset="high">Load high scenario</button></article></div></section>
-<section class="method"><h2>Formula, without a black box</h2><p>Chats = traffic × interaction rate. Leads = chats × lead rate. Potential created = leads × average revenue per sale. Monthly opportunity = potential created × closing rate.</p><p>All values are planning assumptions. Validate them for the specific store and context before using the model in a conversation.</p></section></main><footer>Internal preview only · No customer evidence or earnings calculation</footer><script type="module" src="/src/main.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Illustrative Opportunity Calculator | Serviceform</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <a class="skip" href="#calculator">Skip to calculator</a>
+  <header class="site-header">
+    <span class="brand" aria-label="Serviceform">serviceform.</span>
+    <span class="tag">Internal leadership review · W3-A</span>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Transparent planning tool</p>
+      <h1 id="page-title">Explore an illustrative monthly opportunity.</h1>
+      <p>Set the assumptions, then inspect each step of the calculation. This is an <strong>Illustrative opportunity model</strong>—not customer proof, not a forecast, not partner earnings, not a commission calculation, and not a guaranteed result.</p>
+    </section>
+
+    <section id="calculator" class="calculator" aria-labelledby="calc-title">
+      <div class="assumptions-panel">
+        <p class="eyebrow">Editable assumptions</p>
+        <h2 id="calc-title">Your scenario</h2>
+        <p id="input-guidance" class="guidance">Use non-negative values. Rates are capped at 100% for this illustration; invalid entries are treated as zero until corrected.</p>
+        <p id="validation-summary" class="validation" role="status" aria-live="polite"></p>
+        <div class="fields">
+          <label for="traffic">Monthly site traffic <input id="traffic" name="traffic" type="number" min="0" step="1000" value="400000" inputmode="numeric" aria-describedby="input-guidance"></label>
+          <label for="interaction">Interaction rate <span class="input-with-suffix"><input id="interaction" name="interaction" type="number" min="0" max="100" step="0.1" value="7" inputmode="decimal" aria-describedby="input-guidance"><span aria-hidden="true">%</span></span></label>
+          <label for="leadRate">Lead rate <span class="input-with-suffix"><input id="leadRate" name="leadRate" type="number" min="0" max="100" step="0.1" value="5" inputmode="decimal" aria-describedby="input-guidance"><span aria-hidden="true">%</span></span></label>
+          <label for="revenue">Average revenue per sale <span class="input-with-prefix"><span aria-hidden="true">$</span><input id="revenue" name="revenue" type="number" min="0" step="10" value="300" inputmode="decimal" aria-describedby="input-guidance"></span></label>
+          <label for="closeRate">Closing rate <span class="input-with-suffix"><input id="closeRate" name="closeRate" type="number" min="0" max="100" step="0.1" value="5" inputmode="decimal" aria-describedby="input-guidance"><span aria-hidden="true">%</span></span></label>
+        </div>
+      </div>
+      <div class="results" aria-live="polite" aria-atomic="true">
+        <p class="eyebrow">Calculated path</p>
+        <h2>Monthly opportunity</h2>
+        <dl>
+          <div><dt>Chats</dt><dd id="chats">28,000</dd></div>
+          <div><dt>Leads</dt><dd id="leads">1,400</dd></div>
+          <div><dt>Potential created</dt><dd id="potential">$420,000</dd></div>
+          <div class="total"><dt>Monthly opportunity</dt><dd id="opportunity">$21,000</dd></div>
+        </dl>
+        <p class="formula-label">Calculation using the current inputs</p>
+        <p id="formula" class="formula">400,000 × 7% × 5% × $300 × 5%</p>
+      </div>
+    </section>
+
+    <section class="scenarios" aria-labelledby="scenarios-title">
+      <p class="eyebrow">Illustrative scenarios</p>
+      <h2 id="scenarios-title">Reference assumptions, not performance evidence</h2>
+      <div class="scenario-grid">
+        <article class="scenario scenario-sage"><h3>Lower-input scenario</h3><p>400,000 traffic · 7% interaction · 5% lead · $300 per sale · 5% closing</p><p><strong>28,000</strong> chats · <strong>1,400</strong> leads · <strong>$420,000</strong> potential · <strong>$21,000</strong> monthly opportunity</p><button type="button" data-preset="low">Load this scenario</button></article>
+        <article class="scenario scenario-sky"><h3>Higher-input scenario</h3><p>400,000 traffic · 10% interaction · 15% lead · $300 per sale · 10% closing</p><p><strong>40,000</strong> chats · <strong>6,000</strong> leads · <strong>$1,800,000</strong> potential · <strong>$180,000</strong> monthly opportunity</p><button type="button" data-preset="high">Load this scenario</button></article>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <p class="eyebrow">Method</p>
+      <h2 id="method-title">Formula, without a black box</h2>
+      <p>Chats = traffic × interaction rate. Leads = chats × lead rate. Potential created = leads × average revenue per sale. Monthly opportunity = potential created × closing rate.</p>
+      <p>All values are planning assumptions. Validate them for the specific store and context before using the model in a conversation.</p>
+    </section>
+  </main>
+  <footer>
+    <strong>Non-binding planning illustration.</strong> This tool does not create or change any Serviceform programme, payout, commission, crediting, or lease terms. Participation, if offered, is subject to approved written terms.
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
