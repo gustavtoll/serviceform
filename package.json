@@ -13,7 +13,8 @@
     "build:testimonials": "npm --prefix apps/sales-partner-testimonials run build",
     "build:product-presentation": "npm --prefix apps/ecommerce-product-presentation run build",
     "build:wave-three": "npm run build:opportunity-calculator && npm run build:testimonials && npm run build:product-presentation",
-    "check": "npm run build && npm --prefix apps/sales-partner-signup run check && npm --prefix apps/sales-partner-internal-plan run check && npm --prefix apps/sales-partner-resource-hub run check && npm --prefix apps/ecommerce-sales-partner-deck run check && npm --prefix apps/opportunity-calculator run check && npm --prefix apps/sales-partner-testimonials run check && npm --prefix apps/ecommerce-product-presentation run check",
+    "verify:vercel-release": "node scripts/vercel-release-guardrails.mjs",
+    "check": "node --test tests/vercel-release-guardrails.test.mjs && npm run build && npm --prefix apps/sales-partner-signup run check && npm --prefix apps/sales-partner-internal-plan run check && npm --prefix apps/sales-partner-resource-hub run check && npm --prefix apps/ecommerce-sales-partner-deck run check && npm --prefix apps/opportunity-calculator run check && npm --prefix apps/sales-partner-testimonials run check && npm --prefix apps/ecommerce-product-presentation run check",
     "deploy:preview": "npx --yes vercel",
     "deploy:production": "npx --yes vercel --prod"
   },
