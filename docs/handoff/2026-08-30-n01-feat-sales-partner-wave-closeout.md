@@ -10,7 +10,7 @@ Repository: `/Users/gustavtoll/Dev/serviceform`.
 
 **Last-session focus:** Delivered Wave 3’s Opportunity Calculator as a limited production planning tool; audited the remaining Sales Partner wave stack and prepared session closeout.
 
-**Outcome:** Production calculator released; review PRs remain open; server-owned GHL pilot implementation exists but is deliberately unconfigured and inactive.
+**Outcome:** Production calculator released; the approved Wave 1–3 PR stack is consolidated into clean, mergeable PR #6 against `main`; the separate server-owned GHL pilot remains deliberately unconfigured and inactive.
 
 ## Shipped
 
@@ -30,14 +30,14 @@ Repository: `/Users/gustavtoll/Dev/serviceform`.
 
 ## Open loops
 
-1. **Merge review stack:** PR #3 is the base Serviceform alignment PR; PR #4 (Wave 3) is stacked on #3; PR #6 (calculator hardening/release record) is stacked on #4. Review/merge only with explicit authorization, in dependency order.
-2. **Wave 4-A live pilot:** PR #5 implements a server-owned, allowlisted email-first GoHighLevel pilot. It is not deployed/configured/activated. It needs approved location/token/pipeline/stage IDs, a controlled test email, Preview-only Vercel variables, and controlled CRM verification.
+1. **Final PR review/merge:** PR #6 is now the single consolidated Wave 1–3 PR against `main`, with `CLEAN` / `MERGEABLE` status and no reported checks. PRs #3 and #4 were closed as superseded. Merge #6 only with the next explicit main-merge approval.
+2. **Wave 4-A live pilot:** PR #5 was retargeted to `main` and remains a separate server-owned, allowlisted email-first GoHighLevel pilot. It is not deployed/configured/activated. It needs approved location/token/pipeline/stage IDs, a controlled test email, Preview-only Vercel variables, and controlled CRM verification.
 3. **W3-B / W3-C:** proof/asset approval factory and e-commerce product presentation are implemented but undeployed. The prior first-deployment Preview command was assigned Production by Vercel; obtain a separately approved, verified release approach before launching them.
-4. **Calculator source alignment:** calculator is live from the hardened feature commit, but the source changes are still represented by the open stacked PRs; no merge occurred in this closeout.
+4. **Calculator source alignment:** calculator is live from the hardened feature commit and is now included in PR #6; PR #6 has not been merged into `main`.
 
 ## Do not do
 
-- Do not merge PRs #3, #4, #5, or #6 without a fresh explicit approval.
+- Do not merge PR #6 into `main`, or merge/activate PR #5, without a fresh explicit approval.
 - Do not add GoHighLevel credentials to Git, browser code, chat, or production/Preview until the controlled pilot configuration gate is approved.
 - Do not activate commissions, payouts, partner approval, referrals, Dream Car rules, or Sub-Sales Partner financial entitlements.
 - Do not alter the user’s untracked `Assets/` directory.
