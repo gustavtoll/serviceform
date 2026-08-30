@@ -15,12 +15,13 @@ assert.match(form, /<input\b(?=[^>]*\bid="email")(?=[^>]*\bname="email")(?=[^>]*
 assert.match(form, /<input\b(?=[^>]*\bname="terms_consent")(?=[^>]*\btype="checkbox")(?=[^>]*\brequired\b)/i, 'Required consent control missing');
 assert.match(form, /<input\b(?=[^>]*\bname="website")(?=[^>]*aria-hidden="true")/i, 'Honeypot field missing');
 assert.match(form, /Serviceform may use this email to process my Sales Partner application/i, 'Consent wording missing');
-assert.match(form, /Create my Sales Partner account/i, 'Outcome-led CTA missing');
+assert.match(form, /Apply to become a Sales Partner/i, 'Outcome-led CTA missing');
 assert.doesNotMatch(form, /name="(?:first_name|last_name|company|partner_type|market)"/i, 'Qualification fields must not precede email-first pilot');
 
-for (const claim of ['40% lifetime commission', '90-day first-click', '100 active deals', '10% Sub-Sales Partner kickback']) assert.ok(html.includes(claim), `Missing approved input: ${claim}`);
-assert.match(html, /pilot submission is limited to approved internal test email/i, 'Closed pilot disclosure missing');
-assert.doesNotMatch(html, /no data leaves your browser|design-only preview/i, 'Obsolete local-preview disclosure found');
+for (const claim of ['40% lifetime commission', '90-day first-click', '10% Sub-Sales Partner kickback']) assert.ok(html.includes(claim), `Missing approved program term: ${claim}`);
+assert.doesNotMatch(html, /(?:\bdemo\b|\bpreview\b|pilot submission|controlled pilot|not connected|not function(?:al)?|not sent to|under review)/i, 'Internal, demo, or non-functional framing must not be visitor-facing');
+assert.doesNotMatch(html, /(?:find the fit|make the introduction|grow together|\b0[1-4]\s*\/\s*(?:program|tracks|apply|terms))/i, 'Removed micro-section labels must not return');
+assert.doesNotMatch(html, /Dream Car|100 active deals/i, 'Unapproved vehicle-benefit copy must not be presented as a live program term');
 assert.match(integration, /fetch\('\/api\/sales-partner-application'/, 'Client must use only the same-origin pilot endpoint');
 assert.doesNotMatch(client, /localStorage|gohighlevel|leadconnector|hooks\.zapier|navigator\.sendbeacon|GHL_PRIVATE/i, 'Client leaks an integration detail, secret, or local-only behavior');
 assert.equal((html.match(/<input\b[^>]*\btype="email"/gi) || []).length, 1, 'Page must contain exactly one email input');
@@ -35,6 +36,13 @@ assert.match(css, /\.product-visual\s*\{[^}]*pointer-events:none/i, 'Product vis
 assert.doesNotMatch(html, /trusted by|testimonial|shopify|klarna|nike|adidas|\b\d+[,.]?\d*% (?:conversion|growth|increase)/i, 'Unapproved social proof or named outcome found');
 assert.ok(html.includes('Instrument+Sans'), 'Serviceform display family missing');
 assert.ok(html.includes('class="skip"'), 'Skip link missing');
+const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] || '';
+assert.match(footer, /class="site-footer"/, 'Branded contact footer missing');
+assert.match(footer, /https:\/\/www\.serviceform\.com\/privacy\//, 'Verified privacy-policy link missing');
+assert.match(footer, /https:\/\/www\.serviceform\.com\/terms-and-conditions\//, 'Verified terms link missing');
+for (const office of ['Finland', 'Sweden', 'Spain', 'Sri Lanka']) assert.ok(footer.includes(office), `Footer office missing: ${office}`);
+assert.match(css, /\.site-footer\s*\{[^}]*background:\s*#1b1b1b/i, 'Footer needs the supplied charcoal surface');
+assert.match(css, /@media\s*\(max-width:\s*720px\)[\s\S]*?\.footer-grid/, 'Footer needs a mobile layout rule');
 assert.match(html, /<meta\b[^>]*name="robots"[^>]*content="noindex,nofollow"/i, 'HTML noindex missing');
 assert.match(vercel, /X-Robots-Tag[\s\S]*noindex, nofollow/i, 'Hosting noindex header missing');
 assert.match(html, /role="alert"[^>]*aria-live="polite"|aria-live="polite"[^>]*role="alert"/, 'Live error region missing');
