@@ -1,8 +1,22 @@
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
+const RELEASE_TIMEOUT_MS = 15_000;
+
 function normalize(value) {
   return String(value ?? '').trim().toLowerCase();
+}
+
+function isPrivateHostname(hostname) {
+  const host = normalize(hostname).replace(/^\[|\]$/g, '');
+  if (host === 'localhost' || host === '::1' || host === '0.0.0.0') return true;
+  const octets = host.split('.').map(Number);
+  if (octets.length !== 4 || octets.some((value) => !Number.isInteger(value) || value < 0 || value > 255)) return false;
+  return octets[0] === 10
+    || octets[0] === 127
+    || (octets[0] === 192 && octets[1] === 168)
+    || (octets[0] === 172 && octets[1] >= 16 && octets[1] <= 31)
+    || (octets[0] === 169 && octets[1] === 254);
 }
 
 function findTarget(inspect) {
@@ -11,6 +25,10 @@ function findTarget(inspect) {
 
 function findReadyState(inspect) {
   return inspect?.readyState ?? inspect?.state ?? inspect?.deployment?.readyState ?? '';
+}
+
+function findProjectName(inspect) {
+  return inspect?.name ?? inspect?.project?.name ?? inspect?.deployment?.name ?? '';
 }
 
 function readHeader(headers, name) {
@@ -27,7 +45,7 @@ function check(name, ok, expected, actual) {
 
 export function parseCliArguments(argumentsList) {
   const options = { requireNoindex: false };
-  const valueFlags = new Set(['--url', '--target', '--title', '--scope']);
+  const valueFlags = new Set(['--url', '--target', '--project', '--title', '--scope']);
 
   for (let index = 0; index < argumentsList.length; index += 1) {
     const token = argumentsList[index];
@@ -46,16 +64,17 @@ export function parseCliArguments(argumentsList) {
   if (!options.url) throw new Error('--url is required');
   try {
     const parsedUrl = new URL(options.url);
-    if (parsedUrl.protocol !== 'https:' || parsedUrl.username || parsedUrl.password) {
+    if (parsedUrl.protocol !== 'https:' || parsedUrl.username || parsedUrl.password || isPrivateHostname(parsedUrl.hostname)) {
       throw new Error('unsupported URL');
     }
   } catch {
-    throw new Error('--url must be an HTTPS URL without embedded credentials');
+    throw new Error('--url must be a public HTTPS URL without embedded credentials');
   }
   if (!options.target) throw new Error('--target is required');
   if (!['preview', 'production'].includes(normalize(options.target))) {
     throw new Error('--target must be preview or production');
   }
+  if (!options.project) throw new Error('--project is required');
 
   return options;
 }
@@ -63,7 +82,9 @@ export function parseCliArguments(argumentsList) {
 export function evaluateReleaseEvidence({ inspect, http, expected }) {
   const readyState = normalize(findReadyState(inspect));
   const actualTarget = normalize(findTarget(inspect));
+  const actualProject = normalize(findProjectName(inspect));
   const requiredTarget = normalize(expected?.target);
+  const requiredProject = normalize(expected?.project);
   const status = Number(http?.status);
   const expectedTitle = String(expected?.title ?? '');
   const actualTitle = String(http?.title ?? '');
@@ -72,6 +93,7 @@ export function evaluateReleaseEvidence({ inspect, http, expected }) {
   const checks = [
     check('ready', readyState === 'ready', 'READY', findReadyState(inspect)),
     check('target', actualTarget === requiredTarget, expected?.target, findTarget(inspect)),
+    check('project', actualProject === requiredProject, expected?.project, findProjectName(inspect)),
     check('http-status', status === 200, 200, http?.status),
     check('title', !expectedTitle || actualTitle.includes(expectedTitle), expectedTitle || '(not required)', actualTitle),
   ];
@@ -86,12 +108,19 @@ export function evaluateReleaseEvidence({ inspect, http, expected }) {
 export function inspectDeployment(url, scope) {
   const args = ['--yes', 'vercel', 'inspect', url, '--json'];
   if (scope) args.push('--scope', scope);
-  const output = execFileSync('npx', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  const output = execFileSync('npx', args, {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: RELEASE_TIMEOUT_MS,
+  });
   return JSON.parse(output);
 }
 
-export async function inspectHttp(url) {
-  const response = await fetch(url, { redirect: 'follow' });
+export async function inspectHttp(url, fetchImplementation = fetch) {
+  const response = await fetchImplementation(url, {
+    redirect: 'error',
+    signal: AbortSignal.timeout(RELEASE_TIMEOUT_MS),
+  });
   const html = await response.text();
   const match = html.match(/<title[^>]*>\s*([^<]+?)\s*<\/title>/i);
   return {
@@ -109,13 +138,13 @@ function printReport(result) {
   console.log(result.ok ? 'Release evidence verified.' : 'Release evidence rejected. Do not share, alias, or promote this deployment.');
 }
 
-export async function runCli(argumentsList) {
+export async function runCli(argumentsList, dependencies = {}) {
   const options = parseCliArguments(argumentsList);
-  const [inspect, http] = await Promise.all([
-    Promise.resolve().then(() => inspectDeployment(options.url, options.scope)),
-    inspectHttp(options.url),
-  ]);
-  const result = evaluateReleaseEvidence({ inspect, http, expected: options });
+  const inspect = dependencies.inspect ?? inspectDeployment;
+  const http = dependencies.http ?? inspectHttp;
+  const inspection = await inspect(options.url, options.scope);
+  const response = await http(options.url);
+  const result = evaluateReleaseEvidence({ inspect: inspection, http: response, expected: options });
   printReport(result);
   return result.ok ? 0 : 1;
 }
