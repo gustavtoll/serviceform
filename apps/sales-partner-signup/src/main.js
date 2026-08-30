@@ -17,8 +17,8 @@ function setError(message = '') {
 function setSubmitting(isSubmitting) {
   submitButton.disabled = isSubmitting;
   submitButton.setAttribute('aria-busy', String(isSubmitting));
-  if (isSubmitting) submitButton.textContent = 'Submitting your pilot application…';
-  else submitButton.innerHTML = 'Create my Sales Partner account <span aria-hidden="true">→</span>';
+  if (isSubmitting) submitButton.textContent = 'Sending your application…';
+  else submitButton.innerHTML = 'Apply to become a Sales Partner <span aria-hidden="true">→</span>';
 }
 
 email.addEventListener('input', () => {
@@ -39,7 +39,7 @@ form.addEventListener('submit', async (event) => {
     return;
   }
   if (!consent.checked) {
-    setError('Confirm consent so Serviceform can process this pilot application.');
+    setError('Confirm consent so Serviceform can review your application.');
     consent.focus();
     return;
   }
@@ -52,7 +52,7 @@ form.addEventListener('submit', async (event) => {
     confirmation.hidden = false;
     confirmation.focus();
   } catch (submissionError) {
-    setError(submissionError.message || 'We could not submit the pilot application. Please try again later.');
+    setError(submissionError.message || 'We could not send your application right now. Please try again later.');
   } finally {
     setSubmitting(false);
   }
