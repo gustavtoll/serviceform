@@ -1,17 +1,19 @@
 # Deployment
 
-## Sales Partner Machine — Wave 3 preview-only delivery — August 29, 2026
+## Sales Partner Machine — Wave 3 calculator production release — August 30, 2026
 
-W3-A opportunity calculator, W3-B proof/asset approval factory, and W3-C e-commerce product presentation are authorized for separate Vercel Preview deployments only. Production deployments and aliases are prohibited in this wave. URLs will be recorded here and in `docs/sales-partner-machine/wave-three-delivery-register.md` only after Vercel inspection proves preview target and direct requests prove HTTP 200, expected title, and `X-Robots-Tag: noindex, nofollow`.
+W3-A **Opportunity Calculator** was separately authorized for Production on August 30, 2026. W3-B and W3-C remain undeployed; no other Sales Partner application was released by this action.
 
-All three applications pass their independent checks. Deployment verification is blocked:
+- Release source: `feature/sales-partner-opportunity-calculator-hardening` at `e6325d28adba1a1a32e1eea5869ec7f274c24638`.
+- Production deployment: https://opportunity-calculator-iohh1dylp-gustavtolls-projects.vercel.app
+- Production aliases: https://opportunity-calculator-three.vercel.app and https://opportunity-calculator-gustavtolls-projects.vercel.app
+- Vercel inspection: deployment `dpl_4KC9vLmhEz36uJJr1suGv3kaCWRt`, `target: production`, `READY`.
+- Release checks: independent static and calculator behavior tests, Vite build, direct HTTPS HTTP 200, expected calculator markers, `X-Robots-Tag: noindex, nofollow`, browser interaction with high scenario producing `$180,000` monthly opportunity.
+- Production readiness: **approved for the deliberately limited purpose of a non-binding, noindex planning calculator.** It contains no CRM, analytics, cookies, payment, application, payout, contest, commission, or customer-data behavior.
+- Rollback source: Git restore tag `restore/opportunity-calculator-production-2026-08-30-e6325d2`; redeploy that commit to the existing `opportunity-calculator` project. Do not repoint other Serviceform aliases.
 
-- W3-A command: `npx --yes vercel deploy --target preview --yes --scope gustavtolls-projects` from `apps/opportunity-calculator`.
-- Although the command explicitly requested `preview`, Vercel created the new project and returned deployment `dpl_Arix4XypbDTVSQPKFfWGBRc4aDsJ` with `target: production`, plus automatic aliases. It was rejected and is not accepted or recorded as a Wave 3 preview URL.
-- Containment completed: both automatic aliases (`opportunity-calculator-three.vercel.app` and `opportunity-calculator-gustavtolls-projects.vercel.app`) and deployment `dpl_Arix4XypbDTVSQPKFfWGBRc4aDsJ` were removed. W3-B and W3-C were not attempted because the same new-project behavior could violate the preview-only boundary again.
-- No `--prod` command was called, no existing production alias was altered, and no Wave 3 production endpoint remains. A separately authorized remediation is required before any Wave 3 deployment retry.
+> Vercel again reported a first `--target preview` deploy as production. Because Production was explicitly authorized for W3-A in this release, the resulting target was verified and retained. This does **not** alter the blocked Preview-only status for W3-B/W3-C.
 
-Review URLs therefore remain `Not deployed`. No CRM, analytics, cookies, email, account, payment, customer proof, payout, contest, or application-level production behavior is present.
 
 ## Sales Partner signup W1-A.3 internal review release — August 29, 2026
 

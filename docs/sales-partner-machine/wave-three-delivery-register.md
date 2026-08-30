@@ -1,6 +1,6 @@
 # Sales Partner Machine — Wave 0–3 delivery register
 
-Status checked 29 August 2026. A URL appears only where repository deployment evidence verifies it. `Not deployed` means this wave has no verified review deployment yet. “Published” describes an existing delivery endpoint, not approval of claims or a Wave 3 production authorization.
+Status checked 30 August 2026. A URL appears only where repository deployment evidence verifies it. `Not deployed` means this wave has no verified review deployment yet. “Published” describes a verified live endpoint, not approval of claims beyond that asset’s explicit release scope.
 
 ## Implemented preview-only or internal-ready
 
@@ -16,7 +16,7 @@ Status checked 29 August 2026. A URL appears only where repository deployment ev
 | W1-A.3 | 1 | Internal review release package | Structured internal review and feedback handoff | Internal-ready | `docs/sales-partner-machine/w1-a3-internal-review-release.md` | Internal review, approval, then separately authorized next wave | Noindex internal review only |
 | W2-A | 2 | Sales Partner resource hub | Enablement guidance and scripts | Implemented | https://serviceform-sales-partner-resource.vercel.app | Publication/content governance continues | Existing published enablement artifact; no new Wave 3 action |
 | W2-B | 2 | E-commerce Sales Partner deck | Source-safe first-call story | Implemented | https://serviceform-ecommerce-sales-partner.vercel.app | Publication/content governance continues | Existing published enablement artifact; no new Wave 3 action |
-| W3-A | 3 | Opportunity calculator | Transparent editable illustrative opportunity model | Implemented; preview deployment blocked and contained | Not deployed | Vercel returned `target: production` despite explicit preview target; automatic aliases and deployment were removed; separately authorize remediation before retry | Not accepted as published; no Wave 3 production endpoint remains |
+| W3-A | 3 | Opportunity calculator | Transparent editable illustrative opportunity model | **Production-ready and released (limited scope)** | https://opportunity-calculator-three.vercel.app | Maintain source-safe assumptions; W3-B/W3-C remain separately gated | Published as non-binding, noindex planning tool only; no program/financial activation |
 | W3-B | 3 | Proof/asset approval factory | Prepare asset intake, evidence, rights, and approval records | Internal-ready; zero approved assets; deployment not attempted | Not deployed | Resolve new-project preview-only deployment method; then verify preview and obtain approvals before any asset publication | Not published; internal preview only |
 | W3-C | 3 | E-commerce product presentation | Explain a general source-safe shopper journey | Implemented; deployment not attempted | Not deployed | Resolve new-project preview-only deployment method; then verify preview and complete internal content review | Not published; preview-only authorized |
 
@@ -27,7 +27,7 @@ Status checked 29 August 2026. A URL appears only where repository deployment ev
 | W1-C | 1 | CRM-connected application processing | Persist and route applications | Planned / gated | `docs/sales-partner-machine/go-high-level-contract.md` | Explicit CRM wave, supplied location/access, consent and failure acceptance | Not activated |
 | W2-C | 2 | Outbound campaign execution | Put enablement into controlled use | Planned / gated | `docs/plans/2026-08-28-sales-partner-machine-wave-two.md` | Audience, owners, approved claims, systems, and launch authority | Not published |
 | W3-D | 3 | Approved customer proof library | Supply publishable proof to Sales Partners | Blocked dependency | `docs/sales-partner-machine/claims-and-source-register.md` | Source files, rights owners, exact wording, channels, dates, and legal/leadership approval | No approved assets; not published |
-| W3-E | 3 | Public release or production aliases for Wave 3 | Make tools publicly discoverable | Out of scope / gated | Not deployed | Separate authorization, review, terms, and production wave | Not published |
+| W3-E | 3 | Public release or production aliases for Wave 3 | Make tools publicly discoverable | Partially authorized: W3-A calculator only | https://opportunity-calculator-three.vercel.app | W3-B/W3-C remain separately ...[truncated]
 
 ## Blocked program dependencies
 
